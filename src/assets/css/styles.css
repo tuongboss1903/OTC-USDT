@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Các thành phần dùng lại cho all trang ví dụ btn, tab, input, bg, color, text, card, badge, .v.v. */
+@import "./globals.css";
+/* Crypto Theme với Neon & Glassmorphism */
+@import "./crypto-theme.css";
+/* Các thành phần cho Header dùng chung all trang */
+@import "./header.css";
+/* Các thành phần Blaze Slider dùng chung all trang */
+@import "./blaze-slider.css";
+/* Các thành phần cho Footer dùng chung all trang */
+@import "./footer.css";

@@ -1,0 +1,41 @@
+/* ========================================================================
+   HEADER.CSS - Header Component Styles
+   ======================================================================== */
+
+/* ========================================================================
+   @LAYER COMPONENTS - Header Specific Components
+   ======================================================================== */
+@layer components {
+    
+    /* ========================================================================
+       HEADER LAYOUT GROUP: Các thuộc tính cho Header Layout
+       ======================================================================== */
+    .header {
+        @apply sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60;
+    }
+
+    .header-container {
+        @apply container flex h-16 items-center justify-between;
+    }
+
+    .header-logo {
+        @apply flex items-center space-x-2;
+    }
+
+    .header-nav {
+        @apply hidden items-center space-x-6 md:flex;
+    }
+
+    .header-actions {
+        @apply flex items-center space-x-4;
+    }
+
+
+    /* ========================================================================
+       NAVIGATION GROUP: Các thuộc tính cho Navigation
+       ======================================================================== */
+    .nav-link {
+        @apply overflow-hidden text-ellipsis whitespace-nowrap font-medium text-gray-600 transition-colors duration-150 hover:text-emerald-600;
+    }
+
+}

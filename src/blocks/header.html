@@ -1,0 +1,53 @@
+<header class="glass-strong border-b border-white/10 shadow-lg sticky top-0 z-50 bg-gradient-crypto" x-data="headerComponent()">
+  <!-- Main Header -->
+  <div class="container">
+    <div class="flex-between h-16">
+      <!-- Logo -->
+      <!-- include:headers/logo.html -->
+      
+      <!-- Desktop Navigation -->
+      <!-- include:headers/menu-pc.html -->
+      
+      <!-- Right Actions -->
+      <div class="flex items-center space-x-4">
+        <!-- Search Icon -->
+        <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Search">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+        
+        <!-- Language/Currency Selector -->
+        <div class="hidden md:flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/15 rounded-lg cursor-pointer transition-colors" x-data="{ open: false }" @click="open = !open">
+          <span class="text-white text-sm font-medium">VN</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-white/80"></i>
+        </div>
+        
+        <!-- Login/Register Buttons -->
+        <div id="loginButtons" class="flex items-center space-x-3">
+          <button @click="openAuthModal(); authTab = 'login'" class="btn glass text-white border-white/20 hover:bg-white/10 hover:border-orange-400/50 transition-all">
+            Đăng nhập
+          </button>
+          <button @click="openAuthModal(); authTab = 'register'" class="btn btn-neon text-white">
+            Đăng ký
+          </button>
+        </div>
+        
+        <!-- User Dropdown (hidden when not logged in) -->
+        <div id="userDropdown" class="hidden items-center space-x-3">
+          <div class="flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/15 rounded-lg cursor-pointer transition-colors" x-data="{ open: false }" @click="open = !open">
+            <img id="userAvatar" src="" alt="User" class="w-8 h-8 rounded-full border-2 border-white/20">
+            <span id="userName" class="text-white text-sm font-medium hidden lg:block"></span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/80"></i>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button @click="openMobileMenu()" class="lg:hidden p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- include:headers/menu-mobi.html -->
+  <!-- include:headers/modals.html -->
+</header>

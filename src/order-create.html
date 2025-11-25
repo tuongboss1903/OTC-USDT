@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tạo lệnh giao dịch - USDT P2P</title>
+		<meta name="description"
+			content="Tạo lệnh mua/bán USDT trên nền tảng P2P OTC">
+		<script type="text/javascript">
+			const API_URL = "https://panel.dongnai.net/api/v2/";
+		</script>
+        <style>
+        .hidden {
+            display: none;
+        }
+		</style>
+		<!-- all css -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+		
+		<!-- Libraries -->
+		<script src="assets/js/libs/notification.js" defer></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+			    window.fastNotice = new FastNotice({
+			        position: 'top-center',
+			        duration: 3000,
+			        maxNotifications: 3
+			    });
+			});
+		</script>
+		<script src="assets/js/lucide-custom.min.js" defer></script>
+		<script src="assets/js/libs/jmodal.1.1.0.js" defer></script>
+
+		<!-- Custom JS -->
+		<script src="assets/js/header.js" defer></script>
+		<script src="assets/js/order-create.js" defer></script>
+		<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+	</head>
+	<body class="min-h-screen">
+		<!-- header -->
+		<!-- include:./blocks/header.html -->
+
+		<!-- Main Content Area -->
+		<main class="min-h-screen py-8">
+			<!-- Order Create Section -->
+			<!-- include:blocks/sections/order-create.html -->
+		</main>
+
+		<!-- Footer -->
+        <!-- include:./blocks/footer.html -->
+	</body>
+</html>
+

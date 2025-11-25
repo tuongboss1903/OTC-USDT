@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Đăng ký | USDT P2P</title>
+		<meta name="description" content="Đăng ký tài khoản mới trên USDT P2P">
+		<script type="text/javascript">
+			const API_URL = "https://panel.dongnai.net/api/v2/";
+		</script>
+		<style>
+		.hidden {
+			display: none;
+		}
+		</style>
+		<link rel="stylesheet" href="../assets/css/styles.css" />
+		
+		<script src="../assets/js/libs/notification.js" defer></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				window.fastNotice = new FastNotice({
+					position: 'top-center',
+					duration: 3000,
+					maxNotifications: 3
+				});
+			});
+		</script>
+		<script src="../assets/js/lucide-custom.min.js" defer></script>
+		<script src="../assets/js/libs/jmodal.1.1.0.js" defer></script>
+		<script src="../assets/js/header.js" defer></script>
+		<script src="../assets/js/libs/alpinejs.3.15.0.js" defer></script>
+	</head>
+	<body class="min-h-screen">
+		<!-- header -->
+		<!-- include:../blocks/header.html -->
+
+		<!-- Main Content -->
+		<main class="min-h-screen py-12 lg:py-20 bg-gradient-crypto flex items-center">
+			<div class="absolute inset-0  opacity-5"></div>
+			<div class="absolute inset-0 bg-wave-pattern opacity-10"></div>
+			<div class="container relative z-10">
+				<div class="max-w-md mx-auto">
+					<div class="glass-strong rounded-2xl p-8 lg:p-10">
+						<div class="text-center mb-8">
+							<h1 class="text-3xl lg:text-4xl font-bold text-white mb-3">Đăng ký</h1>
+							<p class="text-gray-300">Tạo tài khoản mới để bắt đầu giao dịch</p>
+						</div>
+
+						<form class="space-y-6" x-data="{ isLoading: false }">
+							<div>
+								<label class="block text-sm font-medium text-gray-300 mb-2">Tên hiển thị</label>
+								<input type="text" required class="input w-full bg-white/5 border-white/20 text-white" placeholder="Username">
+							</div>
+
+							<div>
+								<label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+								<input type="email" required class="input w-full bg-white/5 border-white/20 text-white" placeholder="your@email.com">
+							</div>
+
+							<div>
+								<label class="block text-sm font-medium text-gray-300 mb-2">Mật khẩu</label>
+								<input type="password" required class="input w-full bg-white/5 border-white/20 text-white" placeholder="••••••••">
+								<p class="text-xs text-gray-400 mt-1">Tối thiểu 8 ký tự</p>
+							</div>
+
+							<div>
+								<label class="block text-sm font-medium text-gray-300 mb-2">Xác nhận mật khẩu</label>
+								<input type="password" required class="input w-full bg-white/5 border-white/20 text-white" placeholder="••••••••">
+							</div>
+
+							<label class="flex items-start space-x-2 cursor-pointer">
+								<input type="checkbox" required class="mt-1 rounded border-white/20">
+								<span class="text-sm text-gray-300">Tôi đồng ý với <a href="/terms" class="text-orange-400 hover:text-orange-300">Điều khoản dịch vụ</a> và <a href="/privacy" class="text-orange-400 hover:text-orange-300">Chính sách bảo mật</a></span>
+							</label>
+
+							<button type="submit" class="btn btn-neon w-full" :disabled="isLoading">
+								<span x-show="!isLoading">Đăng ký</span>
+								<span x-show="isLoading">Đang xử lý...</span>
+							</button>
+						</form>
+
+						<div class="mt-6 text-center">
+							<p class="text-gray-300 text-sm">
+								Đã có tài khoản? 
+								<a href="/auth/login" class="text-orange-400 hover:text-orange-300 font-medium">Đăng nhập</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<!-- include:../blocks/footer.html -->
+	</body>
+</html>
+

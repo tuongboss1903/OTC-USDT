@@ -1,0 +1,69 @@
+<!-- Mobile Menu Overlay - Using jModal -->
+<div id="mobileMenuModal" class="jmodal hidden lg:hidden">
+  <div class="jmodal-slide-right bg-gradient-to-b from-slate-900 to-slate-800">
+    <!-- Mobile Menu Header -->
+    <div class="bg-gradient-to-br from-orange-900 to-amber-900 p-6 text-white">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-xl font-bold">Menu</h2>
+          <p class="text-gray-300 text-sm">USDT P2P Trading</p>
+        </div>
+        <button data-jmodal-close class="text-white hover:text-gray-200 transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <!-- Mobile Search -->
+      <form action="search.html" method="GET" class="relative">
+        <i data-lucide="search"
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+        <input type="text" name="q" placeholder="Tìm kiếm..."
+          class="input pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-white/50">
+      </form>
+    </div>
+
+    <!-- Mobile Menu Items -->
+    <div class="flex-1 overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 280px);">
+      <nav class="p-4 space-y-2">
+        <a href="/" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+          Trang chủ
+        </a>
+        <a href="/buy" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+          Mua USDT
+        </a>
+        <a href="/sell" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+          Bán USDT
+        </a>
+        <a href="/news" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+          Tin tức
+        </a>
+        <a href="/account" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+          Tài khoản của tôi
+        </a>
+      </nav>
+      
+      <!-- Mobile Auth Buttons -->
+      <div class="p-4 border-t border-white/10">
+        <div id="mobileLoginButtons" class="space-y-3">
+          <button @click="openAuthModal(); authTab = 'login'; closeMobileMenu();" class="w-full btn btn-outline border-white/30 text-white hover:bg-white/10">
+            Đăng nhập
+          </button>
+          <button @click="openAuthModal(); authTab = 'register'; closeMobileMenu();" class="w-full btn bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white border-0">
+            Đăng ký
+          </button>
+        </div>
+        <div id="mobileUserDropdown" class="hidden">
+          <div class="flex items-center space-x-3 px-4 py-3 bg-white/10 rounded-lg mb-3">
+            <img id="mobileUserAvatar" src="" alt="User" class="w-10 h-10 rounded-full">
+            <div class="flex-1">
+              <div id="mobileUserName" class="text-white font-medium"></div>
+              <div class="text-sm text-gray-400">Tài khoản của tôi</div>
+            </div>
+          </div>
+          <button @click="logout(); closeMobileMenu();" class="w-full btn btn-outline border-red-500/50 text-red-400 hover:bg-red-500/10">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

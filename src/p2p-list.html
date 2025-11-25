@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Danh sách P2P - USDT P2P</title>
+		<meta name="description"
+			content="Danh sách người mua và người bán USDT trên nền tảng P2P OTC">
+		<script type="text/javascript">
+			const API_URL = "https://panel.dongnai.net/api/v2/";
+		</script>
+        <style>
+        .hidden {
+            display: none;
+        }
+		</style>
+		<!-- all css -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+		
+		<!-- 1. CAC THU VIEN CAN SU DUNG -->
+		<!-- Notification Library -->
+		<script src="assets/js/libs/notification.js" defer></script>
+		<!-- Initialize FastNotice -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+			    window.fastNotice = new FastNotice({
+			        position: 'top-center',
+			        duration: 3000,
+			        maxNotifications: 3
+			    });
+			});
+		</script>
+		<!-- Lucide Icons - Custom Build -->
+		<script src="assets/js/lucide-custom.min.js" defer></script>
+		<!-- jModal manager -->
+		<script src="assets/js/libs/jmodal.1.1.0.js" defer></script>
+		<!-- Chart.js Library -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+
+		<!-- 2. CAC CODE JS TU VIET. -->
+		<!-- Header Component JS -->
+		<script src="assets/js/header.js" defer></script>
+		<!-- P2P List JS -->
+		<script src="assets/js/p2p-list.js" defer></script>
+
+		<!-- Alpine.js CDN -->
+		<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+	</head>
+	<body class="min-h-screen">
+		<!-- header -->
+		<!-- include:./blocks/header.html -->
+
+		<!-- Main Content Area -->
+		<main class="min-h-screen py-8">
+			<!-- P2P List Section -->
+			<!-- include:blocks/sections/p2p-list.html -->
+		</main>
+
+		<!-- Footer -->
+        <!-- include:./blocks/footer.html -->
+	</body>
+</html>
+

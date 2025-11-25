@@ -1,0 +1,336 @@
+<!-- Hero Section with Full Background -->
+<section class="hero-section relative min-h-screen flex items-center overflow-hidden">
+  <!-- Video Background -->
+  <div class="absolute inset-0 w-full h-full z-0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+    <video 
+      id="hero-background-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;"
+    >
+      <source src="assets/images/video/48569-454825064.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Overlay để text dễ đọc hơn -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" style="z-index: 1;"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50" style="z-index: 1;"></div>
+  </div>
+  
+  <!-- Content Container -->
+  <div class="container relative z-10 py-12 lg:py-20">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <!-- Left Content -->
+      <div class="text-center lg:text-left space-y-6">
+        <!-- Rating Box -->
+        <div class="inline-flex items-center space-x-3 px-5 py-2.5 glass rounded-full mb-6 shadow-lg">
+          <div class="flex items-center space-x-1">
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+          </div>
+          <span class="text-white text-sm font-semibold">Hơn 50,000+ người dùng</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-6xl lg:text-6xl font-bold text-white leading-tight mb-4">
+          Giao dịch USDT
+          <span class="block text-gradient-neon py-2">
+            An toàn & Nhanh chóng
+          </span>
+        </h1>
+
+        <!-- Description -->
+        <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-8">
+          Kết nối người mua và người bán USDT một cách an toàn, nhanh chóng với hệ thống bảo mật đa lớp.
+          Tham gia cộng đồng hơn 50,000+ trader đáng tin cậy.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+          <button
+            class="btn btn-lg btn-neon text-white shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all">
+            <span class="flex items-center gap-2">
+              Bắt đầu giao dịch
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </span>
+          </button>
+          <button class="btn btn-lg btn-outline-modern">
+            <span class="flex items-center gap-2">
+              <i data-lucide="play-circle" class="w-5 h-5"></i>
+              Xem hướng dẫn
+            </span>
+          </button>
+        </div>
+
+        <!-- Statistics -->
+        <div class="grid grid-cols-3 gap-4">
+          <!-- Card 1 -->
+          <div class="glass rounded-xl p-5 glass-hover relative overflow-hidden group">
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl flex items-center justify-center mb-4 border border-blue-500/20 group-hover:border-blue-500/40 transition-all duration-300">
+                <i data-lucide="users"
+                  class="w-7 h-7 text-blue-400 group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <div
+                class="text-3xl lg:text-4xl font-bold text-white mb-1 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                50K+</div>
+              <div class="text-xs text-gray-400 mb-1 uppercase tracking-wider">Active Users</div>
+              <div class="flex items-center justify-center gap-1 text-xs text-green-400">
+                <i data-lucide="trending-up" class="w-3 h-3"></i>
+                <span>+12% this month</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass rounded-xl p-5 glass-hover relative overflow-hidden group">
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl flex items-center justify-center mb-4 border border-green-500/20 group-hover:border-green-500/40 transition-all duration-300">
+                <i data-lucide="trending-up"
+                  class="w-7 h-7 text-green-400 group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <div
+                class="text-3xl lg:text-4xl font-bold text-white mb-1 bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
+                $2.5B+</div>
+              <div class="text-xs text-gray-400 mb-1 uppercase tracking-wider">Trading Volume</div>
+              <div class="flex items-center justify-center gap-1 text-xs text-green-400">
+                <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                <span>All time high</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass rounded-xl p-5 glass-hover relative overflow-hidden group">
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center">
+              <div
+                class="w-14 h-14 bg-gradient-to-br from-amber-500/20 to-amber-600/10 rounded-xl flex items-center justify-center mb-4 border border-amber-500/20 group-hover:border-amber-500/40 transition-all duration-300">
+                <i data-lucide="award"
+                  class="w-7 h-7 text-amber-400 fill-amber-400 group-hover:scale-110 transition-transform duration-300"></i>
+              </div>
+              <div
+                class="text-3xl lg:text-4xl font-bold text-white mb-1 bg-gradient-to-r from-white to-amber-200 bg-clip-text text-transparent">
+                99.8%</div>
+              <div class="text-xs text-gray-400 mb-1 uppercase tracking-wider">Success Rate</div>
+              <div class="flex items-center justify-center gap-1 text-xs text-green-400">
+                <i data-lucide="shield-check" class="w-3 h-3"></i>
+                <span>Verified secure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Content - Trading Widget -->
+      <div class="relative mt-8 lg:mt-0">
+        <!-- Main Trading Widget Card -->
+        <div class="glass-strong rounded-2xl p-6 lg:p-8 relative overflow-hidden shadow-2xl border border-white/5">
+          <!-- Background Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-amber-500/10 to-yellow-500/10"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+
+          <!-- Decorative Elements -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl"></div>
+
+          <!-- Content -->
+          <div class="relative z-10">
+            <!-- Header with Trading Pairs -->
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="text-lg font-bold text-white mb-1">USDT/VND Trading</h3>
+                <p class="text-xs text-gray-400">Real-time market data</p>
+              </div>
+              <div class="flex items-center space-x-2">
+                <div
+                  class="flex items-center space-x-1 px-2 py-1 bg-green-500/20 rounded-lg border border-green-500/30">
+                  <i data-lucide="circle" class="w-2 h-2 text-green-400 fill-green-400 animate-pulse"></i>
+                  <span class="text-xs text-green-400 font-medium">Live</span>
+                </div>
+                <button class="p-2 glass rounded-lg hover:bg-white/10 transition-colors" title="Refresh">
+                  <i data-lucide="refresh-cw" class="w-4 h-4 text-gray-400"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Trading Pairs Price Boxes -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <!-- Buy USDT Card -->
+              <a href="/buy"
+                class="glass rounded-xl p-5 border-amber-400/30 relative overflow-hidden group hover:border-amber-400/50 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300 cursor-pointer">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+                <div
+                  class="absolute top-0 right-0 w-16 h-16 bg-amber-500/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="text-xs text-gray-400 font-medium uppercase tracking-wide">Buy Price</div>
+                    <i data-lucide="arrow-down-circle"
+                      class="w-4 h-4 text-amber-400 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                  </div>
+                  <div
+                    class="text-3xl lg:text-4xl font-bold text-white leading-none mb-1 tracking-tight group-hover:scale-105 transition-transform">
+                    25,450</div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-xs text-gray-400">VND</span>
+                    <span class="text-xs text-gray-500">/USDT</span>
+                  </div>
+                  <div class="mt-2 text-xs text-gray-500 group-hover:text-amber-400 transition-colors">Click to buy →
+                  </div>
+                </div>
+              </a>
+
+              <!-- Sell USDT Card -->
+              <a href="/sell"
+                class="glass rounded-xl p-5 border-orange-400/30 relative overflow-hidden group hover:border-orange-400/50 hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300 cursor-pointer">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+                <div
+                  class="absolute top-0 right-0 w-16 h-16 bg-orange-500/5 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                </div>
+
+                <!-- Trending Badge -->
+                <div
+                  class="absolute top-2 right-2 flex items-center space-x-1 px-2 py-1 bg-green-500/20 rounded-lg backdrop-blur-sm border border-green-500/30">
+                  <i data-lucide="trending-up" class="w-3 h-3 text-green-400"></i>
+                  <span class="text-xs text-green-400 font-semibold">+0.12%</span>
+                </div>
+
+                <div class="relative z-10">
+                  <div class="flex items-center justify-between mb-2">
+                    <div class="text-xs text-gray-400 font-medium uppercase tracking-wide">Sell Price</div>
+                    <i data-lucide="arrow-up-circle"
+                      class="w-4 h-4 text-orange-400 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                  </div>
+                  <div
+                    class="text-3xl lg:text-4xl font-bold text-white leading-none mb-1 tracking-tight group-hover:scale-105 transition-transform">
+                    25,480</div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-xs text-gray-400">VND</span>
+                    <span class="text-xs text-gray-500">/USDT</span>
+                  </div>
+                  <div class="mt-2 text-xs text-gray-500 group-hover:text-orange-400 transition-colors">Click to sell →
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Divider -->
+            <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6"></div>
+
+            <!-- Trading Chart Mini -->
+            <div class="glass rounded-xl p-5 border border-white/5 relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-50"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <div class="text-sm font-bold text-white mb-1">Biến động 24h</div>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-xs text-gray-400">24h High:</span>
+                      <span class="text-xs text-green-400 font-semibold">25,520</span>
+                      <span class="text-xs text-gray-500">|</span>
+                      <span class="text-xs text-gray-400">24h Low:</span>
+                      <span class="text-xs text-red-400 font-semibold">25,420</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center space-x-1 text-xs text-gray-400">
+                    <i data-lucide="clock" class="w-3 h-3"></i>
+                    <span>Real-time</span>
+                  </div>
+                </div>
+
+                <div class="chart-wrapper" style="position: relative; width: 100%; height: 120px; min-height: 120px;">
+                  <div id="tradingview_hero_chart" class="w-full h-full"></div>
+                </div>
+
+                <!-- Chart Stats -->
+                <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
+                  <div class="text-center flex-1">
+                    <div class="text-xs text-gray-400 mb-1">Thay đổi</div>
+                    <div class="text-sm font-bold text-green-400">+30 VND</div>
+                  </div>
+                  <div class="w-px h-8 bg-white/10"></div>
+                  <div class="text-center flex-1">
+                    <div class="text-xs text-gray-400 mb-1">Volume</div>
+                    <div class="text-sm font-bold text-white">$2.5M</div>
+                  </div>
+                  <div class="w-px h-8 bg-white/10"></div>
+                  <div class="text-center flex-1">
+                    <div class="text-xs text-gray-400 mb-1">Spread</div>
+                    <div class="text-sm font-bold text-orange-400">0.12%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden lg:block">
+    <div class="flex flex-col items-center space-y-2">
+      <span class="text-gray-300 text-sm">Scroll để khám phá</span>
+      <i data-lucide="chevron-down" class="w-6 h-6 text-gray-400"></i>
+    </div>
+  </div>
+</section>
+
+<!-- Video Background Script for Smooth Loop -->
+<script>
+(function() {
+    const video = document.getElementById('hero-background-video');
+    if (!video) {
+        console.error('Video element not found');
+        return;
+    }
+    
+    // Ensure video plays
+    video.addEventListener('canplay', function() {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => {
+                console.log('Video autoplay prevented:', err);
+            });
+        }
+    });
+    
+    // Handle smooth loop
+    video.addEventListener('ended', function() {
+        setTimeout(() => {
+            video.currentTime = 0;
+            video.play().catch(() => {});
+        }, 50);
+    });
+    
+    // Pause when page is hidden
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            video.pause();
+        } else {
+            video.play().catch(() => {});
+        }
+    });
+    
+    // Force play after delay
+    setTimeout(() => {
+        if (video.paused) {
+            video.play().catch(() => {});
+        }
+    }, 500);
+})();
+</script>

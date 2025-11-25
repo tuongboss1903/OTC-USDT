@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>USDT P2P - Giao dịch USDT An toàn & Nhanh chóng</title>
+	<meta name="description"
+		content="Nền tảng giao dịch P2P USDT an toàn, nhanh chóng và đáng tin cậy. Kết nối người mua và người bán trên toàn thế giới.">
+	<script type="text/javascript">
+		const API_URL = "https://panel.dongnai.net/api/v2/";
+	</script>
+	<!-- Add Inline Hidden Class for Fix CLS -->
+	<style>
+		.hidden {
+			display: none;
+		}
+	</style>
+	<!-- all css -->
+	<link rel="stylesheet" href="assets/css/styles.css" />
+
+
+
+	<!-- 1. CAC THU VIEN CAN SU DUNG -->
+	<!-- Notification Library -->
+	<script src="assets/js/libs/notification.js" defer></script>
+	<!-- Initialize FastNotice -->
+	<script>
+		// Khởi tạo FastNotice với cấu hình tùy chỉnh sau khi DOM sẵn sàng
+		document.addEventListener('DOMContentLoaded', function () {
+			window.fastNotice = new FastNotice({
+				position: 'top-center',    // Vị trí mặc định
+				duration: 3000,              // Thời gian hiển thị (ms)
+				maxNotifications: 3          // Số notification tối đa
+			});
+		});
+	</script>
+	<!-- Lucide Icons - Custom Build -->
+	<script src="assets/js/lucide-custom.min.js" defer></script>
+	<!-- jModal manager -->
+	<script src="assets/js/libs/jmodal.1.1.0.js" defer></script>
+	<!-- Load BlazeSlider Library -->
+	<script src="assets/js/libs/blaze-slider.js" defer></script>
+	<!-- Libs Tabs JS Thuần -->
+	<script src="assets/js/libs/tabs.js" defer></script>
+	<!-- Image Fallback Utility -->
+	<script src="assets/js/libs/image-fallback.js" defer></script>
+	<!-- TradingView Widget Library -->
+	<script type="text/javascript" src="https://s3.tradingview.com/tv.js" defer></script>
+	<!-- Preconnect to TradingView for faster loading -->
+	<link rel="preconnect" href="https://s3.tradingview.com">
+	<link rel="dns-prefetch" href="https://s3.tradingview.com">
+
+	<!-- 2. CAC CODE JS TU VIET. -->
+
+	<!-- Header Component JS. Vi no goi Cart nen nam sau Cart -->
+	<script src="assets/js/header.js" defer></script>
+	<!-- TradingView Widget Initialization -->
+	<script src="assets/js/tradingview-init.js" defer></script>
+	<!-- Market Stats Initialization -->
+	<script src="assets/js/market-stats.js" defer></script>
+	<!-- Run BlazeSlider -->
+	<script src="assets/js/sliders.js" defer></script>
+
+	<!-- Alpine.js CDN. Nam duoi cung vi chay Defer va vi no AutoRun nen can load sau cung truoc -->
+	<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+
+
+</head>
+
+<body class="min-h-screen">
+	<!-- header -->
+	<!-- include:./blocks/header.html -->
+
+	<!-- Main Content Area -->
+	<main class="min-h-screen">
+		<!-- 1. Hero Section - First Impression -->
+		<!-- include:blocks/sections/hero.html -->
+
+		<!-- Main Content Wrapper with Shared Background -->
+		<div class=" relative overflow-hidden">
+			<div class="absolute inset-0 bg-wave-pattern opacity-6"></div>
+			<div class="absolute inset-0 bg-grid-pattern opacity-3"></div>
+
+			<div class="relative z-10">
+
+				<!-- Market Overview Section - Real-time Market Data -->
+				<!-- include:blocks/sections/market-overview.html -->
+
+				<!--  Exchange Logos Section - Partners -->
+				<!-- include:blocks/sections/exchange-logos.html -->
+
+				<!-- Seller Summary Section - Show Sellers -->
+				<!-- include:blocks/sections/seller-summary.html -->
+
+				<!-- Buyer Summary Section - Show Buyers -->
+				<!-- include:blocks/sections/buyer-summary.html -->
+
+				<!-- Benefits Section - Why Choose Us -->
+				<!-- include:blocks/sections/benefits.html -->
+
+				<!-- Trust Indicators Section - Build Trust Early -->
+				<!-- include:blocks/sections/trust-indicators.html -->
+
+				<!-- Banner Promo Section with Real Image - Call to Action -->
+				<!-- include:blocks/sections/banner-promo.html -->
+
+				<!-- How It Works Section - Process Explanation -->
+				<!-- include:blocks/sections/how-it-works.html -->
+
+				<!-- Features Detailed Section - Detailed Features -->
+				<!-- include:blocks/sections/features-detailed.html -->
+
+				<!-- Quick Actions Section - Trading Tools -->
+				<!-- include:blocks/sections/quick-actions.html -->
+
+
+
+				<!-- Upgrade Packages Section - Monetization -->
+				<!-- include:blocks/sections/upgrade-packages.html -->
+
+				<!-- FAQ Section - Address Concerns -->
+				<!-- include:blocks/sections/faq.html -->
+
+				<!-- Blog Section - Content Marketing -->
+				<!-- include:blocks/sections/blog.html -->
+
+
+				<!-- Testimonials Section - Social Proof -->
+				<!-- include:blocks/sections/testimonials.html -->
+
+				<!-- CTA Section - Final Call to Action -->
+				<!-- include:blocks/sections/cta.html -->
+
+			</div>
+		</div>
+	</main>
+
+	<!-- Footer -->
+	<!-- include:./blocks/footer.html -->
+</body>
+
+</html>

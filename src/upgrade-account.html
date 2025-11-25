@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Nâng cấp tài khoản | USDT P2P</title>
+		<meta name="description" content="Nâng cấp tài khoản để tăng độ uy tín và nhận nhiều ưu đãi độc quyền">
+		<script type="text/javascript">
+			const API_URL = "https://panel.dongnai.net/api/v2/";
+		</script>
+		<style>
+		.hidden {
+			display: none;
+		}
+		</style>
+		<link rel="stylesheet" href="assets/css/styles.css" />
+		
+		<script src="assets/js/libs/notification.js" defer></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				window.fastNotice = new FastNotice({
+					position: 'top-center',
+					duration: 3000,
+					maxNotifications: 3
+				});
+			});
+		</script>
+		<script src="assets/js/lucide-custom.min.js" defer></script>
+		<script src="assets/js/libs/jmodal.1.1.0.js" defer></script>
+		<script src="assets/js/header.js" defer></script>
+		<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+	</head>
+	<body class="min-h-screen">
+		<!-- header -->
+		<!-- include:./blocks/header.html -->
+
+		<!-- Banner Header with Real Image -->
+		<section class="relative py-20 lg:py-32 overflow-hidden">
+			<!-- Background Image -->
+			<div class="absolute inset-0">
+				<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&q=80" alt="Upgrade Account" class="w-full h-full object-cover">
+				<div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/85"></div>
+			</div>
+			<div class="absolute inset-0  opacity-10"></div>
+			<div class="container relative z-10">
+				<div class="text-center max-w-3xl mx-auto">
+					<div class="inline-flex items-center space-x-2 px-4 py-2 bg-orange-500/20 rounded-full mb-6">
+						<i data-lucide="gem" class="w-5 h-5 text-orange-400"></i>
+						<span class="text-orange-400 font-semibold text-sm">Nâng cấp tài khoản</span>
+					</div>
+					<h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">Tăng Độ Uy Tín & Nhận Ưu Đãi Độc Quyền</h1>
+					<p class="text-xl text-gray-300 mb-8 leading-relaxed">
+						Chọn gói phù hợp để tận dụng tối đa các tính năng và ưu đãi độc quyền. 
+						Nâng cao vị thế của bạn trong cộng đồng P2P OTC.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Main Content -->
+		<main class="min-h-screen py-8 lg:py-12 bg-gradient-crypto">
+			<div class="container">
+				<div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+					<!-- Package 1: Verified -->
+					<div class="glass rounded-2xl p-6 lg:p-8 glass-hover relative">
+						<div class="text-center mb-6">
+							<div class="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+								<i data-lucide="check-circle" class="w-8 h-8 text-green-400"></i>
+							</div>
+							<h3 class="text-2xl font-bold text-white mb-2">GÓI 1: Verified</h3>
+							<div class="text-3xl font-bold text-white mb-1">Miễn phí</div>
+							<div class="text-sm text-gray-400">Sau khi verify email</div>
+						</div>
+						
+						<ul class="space-y-3 mb-6">
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Ưu tiên hiển thị</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Tăng trust score</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Badge Verified</span>
+							</li>
+						</ul>
+						
+						<button class="btn btn-outline-modern w-full">Gói hiện tại</button>
+					</div>
+
+					<!-- Package 2: Diamond -->
+					<div class="glass rounded-2xl p-6 lg:p-8 glass-hover relative border-2 border-orange-400/50">
+						<div class="absolute -top-4 left-1/2 -translate-x-1/2">
+							<span class="bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-full">Phổ biến</span>
+						</div>
+						<div class="text-center mb-6">
+							<div class="w-16 h-16 bg-yellow-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+								<i data-lucide="gem" class="w-8 h-8 text-yellow-400"></i>
+							</div>
+							<h3 class="text-2xl font-bold text-white mb-2">GÓI 2: Diamond</h3>
+							<div class="text-3xl font-bold text-white mb-1">299K</div>
+							<div class="text-sm text-gray-400">/tháng</div>
+						</div>
+						
+						<ul class="space-y-3 mb-6">
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Tất cả tính năng Verified</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Top vị trí hiển thị</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Badge Diamond nổi bật</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Ưu tiên hỗ trợ</span>
+							</li>
+						</ul>
+						
+						<button class="btn btn-neon w-full">Mua Ngay</button>
+					</div>
+
+					<!-- Package 3: Premium Shield -->
+					<div class="glass rounded-2xl p-6 lg:p-8 glass-hover relative">
+						<div class="text-center mb-6">
+							<div class="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+								<i data-lucide="shield" class="w-8 h-8 text-orange-400"></i>
+							</div>
+							<h3 class="text-2xl font-bold text-white mb-2">GÓI 3: Premium Shield</h3>
+							<div class="text-3xl font-bold text-white mb-1">999K</div>
+							<div class="text-sm text-gray-400">/tháng</div>
+						</div>
+						
+						<ul class="space-y-3 mb-6">
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Tất cả tính năng Diamond</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Uy tín cao nhất</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Ký quỹ / bảo chứng</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">Ưu tiên tuyệt đối</span>
+							</li>
+							<li class="flex items-start space-x-2">
+								<i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
+								<span class="text-gray-300 text-sm">API access & Webhook</span>
+							</li>
+						</ul>
+						
+						<button class="btn btn-neon w-full">Mua Ngay</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<!-- include:./blocks/footer.html -->
+	</body>
+</html>
+

@@ -1,0 +1,298 @@
+<!-- P2P List Section -->
+<section class="py-8 lg:py-12 " x-data="p2pListComponent()">
+  <div class="absolute inset-0 bg-wave-pattern opacity-10"></div>
+  <div class="container relative z-10">
+    <!-- Page Header -->
+    <div class="mb-8">
+      <h1 class="text-3xl lg:text-4xl font-bold mb-3 text-gradient-neon">Danh sách P2P</h1>
+      <p class="text-white">Tìm kiếm và kết nối với người mua/bán USDT</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs mb-6">
+      <div class="tabs-menus glass">
+        <button @click="activeTab = 'seller'" class="tab-menu"
+          :class="activeTab === 'seller' ? 'active bg-orange-500/30 text-white neon-glow-purple' : 'text-white/80 hover:text-white'">
+          Người bán (Seller)
+        </button>
+        <button @click="activeTab = 'buyer'" class="tab-menu"
+          :class="activeTab === 'buyer' ? 'active bg-orange-500/30 text-white neon-glow-purple' : 'text-white/80 hover:text-white'">
+          Người mua (Buyer)
+        </button>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="glass rounded-xl p-4 lg:p-6 mb-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+        <!-- Search -->
+        <div class="lg:col-span-2">
+          <div class="relative">
+            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+            <input type="text" x-model="filters.search" placeholder="Tìm kiếm theo tên, giá..."
+              class="input w-full pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-300">
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <select x-model="filters.priceRange" class="input bg-white/10 border-white/20 text-white">
+          <option value="">Tất cả giá</option>
+          <option value="low">Dưới 25,450</option>
+          <option value="medium">25,450 - 25,480</option>
+          <option value="high">Trên 25,480</option>
+        </select>
+
+        <!-- Rating Filter -->
+        <select x-model="filters.rating" class="input bg-white/10 border-white/20 text-white">
+          <option value="">Tất cả rating</option>
+          <option value="5">5 sao</option>
+          <option value="4">4+ sao</option>
+          <option value="3">3+ sao</option>
+        </select>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <!-- Deposit Filter (Seller only) -->
+        <select x-show="activeTab === 'seller'" x-model="filters.deposit"
+          class="input bg-white/10 border-white/20 text-white">
+          <option value="">Ký quỹ</option>
+          <option value="high">$10K+</option>
+          <option value="medium">$5K - $10K</option>
+          <option value="low">Dưới $5K</option>
+        </select>
+
+        <!-- Volume Filter (Buyer only) -->
+        <select x-show="activeTab === 'buyer'" x-model="filters.volume"
+          class="input bg-white/10 border-white/20 text-white">
+          <option value="">Tổng giao dịch</option>
+          <option value="high">$1M+</option>
+          <option value="medium">$500K - $1M</option>
+          <option value="low">Dưới $500K</option>
+        </select>
+
+        <!-- Verified Filter -->
+        <select x-model="filters.verified" class="input bg-white/10 border-white/20 text-white">
+          <option value="">Tất cả</option>
+          <option value="verified">Đã xác minh</option>
+          <option value="premium">Premium</option>
+        </select>
+
+        <!-- Online Status -->
+        <select x-model="filters.online" class="input bg-white/10 border-white/20 text-white">
+          <option value="">Tất cả</option>
+          <option value="online">Chỉ Online</option>
+          <option value="offline">Offline</option>
+        </select>
+
+        <!-- Sort -->
+        <select x-model="filters.sort" class="input bg-white/10 border-white/20 text-white">
+          <option value="rating">Sắp xếp theo</option>
+          <option value="price_asc">Giá thấp nhất</option>
+          <option value="price_desc">Giá cao nhất</option>
+          <option value="rating">Rating cao nhất</option>
+          <option value="volume">Khối lượng cao nhất</option>
+        </select>
+      </div>
+
+      <!-- Advanced Filter Toggle -->
+      <div class="mt-4 flex items-center justify-between">
+        <button @click="showAdvanced = !showAdvanced"
+          class="text-gray-300 hover:text-white text-sm flex items-center gap-2">
+          <i data-lucide="filter" class="w-4 h-4"></i>
+          Lọc nâng cao
+          <i data-lucide="chevron-down" class="w-4 h-4 transition-transform"
+            :class="showAdvanced ? 'rotate-180' : ''"></i>
+        </button>
+        <button @click="resetFilters()" class="text-gray-300 hover:text-white text-sm">
+          Đặt lại
+        </button>
+      </div>
+    </div>
+
+    <!-- Seller List -->
+    <div x-show="activeTab === 'seller'" class="space-y-4">
+      <!-- Seller Table -->
+      <div class="glass-strong rounded-xl overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[1000px]">
+            <thead>
+              <tr class="border-b border-white/10 bg-white/5">
+                <th class="text-left py-4 px-4 text-white font-medium">Người bán</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Ký quỹ</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Giao dịch</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Thành công</th>
+                <th class="text-center py-4 px-4 text-white font-medium">Rating</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Giá bán</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Giới hạn</th>
+                <th class="text-center py-4 px-4 text-white font-medium">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="(seller, index) in paginatedSellers" :key="index">
+                <tr class="border-b border-orange-500/10 hover:bg-orange-500/5 transition-colors">
+                  <td class="py-4 px-4">
+                    <div class="flex items-center space-x-3">
+                      <img :src="seller.avatar" :alt="seller.name"
+                        class="w-10 h-10 rounded-full border-2 border-white/20">
+                      <div>
+                        <div class="flex items-center space-x-2">
+                          <span class="text-white font-medium" x-text="seller.name"></span>
+                          <i x-show="seller.verified" data-lucide="award"
+                            class="w-5 h-5 text-green-400 fill-green-400"></i>
+                          <i x-show="seller.premium" data-lucide="gem" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <div class="flex items-center space-x-1 mt-1">
+                          <i data-lucide="circle" class="w-2 h-2"
+                            :class="seller.online ? 'text-green-400 fill-green-400' : 'text-gray-400 fill-gray-400'"></i>
+                          <span class="text-xs" :class="seller.online ? 'text-green-400' : 'text-gray-400'"
+                            x-text="seller.online ? 'Online' : 'Offline'"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <span class="text-white font-bold" x-text="seller.deposit"></span>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <span class="text-white" x-text="seller.transactions"></span>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <span class="text-green-400 font-bold" x-text="seller.successRate + '%'"></span>
+                  </td>
+                  <td class="py-4 px-4 text-center">
+                    <div class="flex items-center justify-center space-x-1">
+                      <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                      <span class="text-white font-medium" x-text="seller.rating"></span>
+                      <span class="text-gray-300 text-xs" x-text="'(' + seller.reviews + ')'"></span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <div class="text-white font-bold" x-text="seller.price"></div>
+                    <div class="text-xs text-gray-300">VND</div>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <div class="text-white text-sm" x-text="seller.limit"></div>
+                  </td>
+                  <td class="py-4 px-4 text-center">
+                    <button @click="createOrder('buy', seller.id)" class="btn btn-sm btn-neon text-white">
+                      Mua
+                    </button>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buyer List -->
+    <div x-show="activeTab === 'buyer'" class="space-y-4">
+      <!-- Buyer Table -->
+      <div class="glass-strong rounded-xl overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[1000px]">
+            <thead>
+              <tr class="border-b border-white/10 bg-white/5">
+                <th class="text-left py-4 px-4 text-white font-medium">Người mua</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Tổng GD</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Giao dịch</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Hoàn thành</th>
+                <th class="text-center py-4 px-4 text-white font-medium">Rating</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Giá mua</th>
+                <th class="text-right py-4 px-4 text-white font-medium">Giới hạn</th>
+                <th class="text-center py-4 px-4 text-white font-medium">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="(buyer, index) in paginatedBuyers" :key="index">
+                <tr class="border-b border-orange-500/10 hover:bg-orange-500/5 transition-colors">
+                  <td class="py-4 px-4">
+                    <div class="flex items-center space-x-3">
+                      <img :src="buyer.avatar" :alt="buyer.name"
+                        class="w-10 h-10 rounded-full border-2 border-white/20">
+                      <div>
+                        <div class="flex items-center space-x-2">
+                          <span class="text-white font-medium" x-text="buyer.name"></span>
+                          <i x-show="buyer.verified" data-lucide="award"
+                            class="w-5 h-5 text-green-400 fill-green-400"></i>
+                          <i x-show="buyer.premium" data-lucide="gem" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <div class="flex items-center space-x-1 mt-1">
+                          <i data-lucide="circle" class="w-2 h-2"
+                            :class="buyer.online ? 'text-green-400 fill-green-400' : 'text-gray-400 fill-gray-400'"></i>
+                          <span class="text-xs" :class="buyer.online ? 'text-green-400' : 'text-gray-400'"
+                            x-text="buyer.online ? 'Online' : 'Offline'"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <span class="text-white font-bold" x-text="buyer.totalVolume"></span>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <span class="text-white" x-text="buyer.transactions"></span>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <span class="text-green-400 font-bold" x-text="buyer.completionRate + '%'"></span>
+                  </td>
+                  <td class="py-4 px-4 text-center">
+                    <div class="flex items-center justify-center space-x-1">
+                      <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                      <span class="text-white font-medium" x-text="buyer.rating"></span>
+                      <span class="text-gray-300 text-xs" x-text="'(' + buyer.reviews + ')'"></span>
+                    </div>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <div class="text-white font-bold" x-text="buyer.price"></div>
+                    <div class="text-xs text-gray-300">VND</div>
+                  </td>
+                  <td class="py-4 px-4 text-right">
+                    <div class="text-white text-sm" x-text="buyer.limit"></div>
+                  </td>
+                  <td class="py-4 px-4 text-center">
+                    <button @click="createOrder('sell', buyer.id)"
+                      class="btn btn-sm bg-gradient-to-r from-pink-500 to-red-500 text-white border-0">
+                      Bán
+                    </button>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-white text-sm">
+        <template x-if="totalItems > 0">
+          <span>
+            Hiển thị <span x-text="(currentPage - 1) * itemsPerPage + 1"></span> -
+            <span x-text="Math.min(currentPage * itemsPerPage, totalItems)"></span>
+            của <span x-text="totalItems"></span> kết quả
+          </span>
+        </template>
+        <template x-if="totalItems === 0">
+          <span>Không tìm thấy kết quả</span>
+        </template>
+      </div>
+      <div class="pagination" x-show="totalPages > 1">
+        <button @click="prevPage()" :disabled="currentPage === 1" class="pagination-item"
+          :class="currentPage === 1 ? 'disabled' : ''">
+          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+        </button>
+        <template x-for="page in getVisiblePages()" :key="page">
+          <button @click="goToPage(page)" class="pagination-item" :class="currentPage === page ? 'active' : ''"
+            x-text="page === '...' ? '...' : page">
+          </button>
+        </template>
+        <button @click="nextPage()" :disabled="currentPage === totalPages || totalPages === 0" class="pagination-item"
+          :class="(currentPage === totalPages || totalPages === 0) ? 'disabled' : ''">
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

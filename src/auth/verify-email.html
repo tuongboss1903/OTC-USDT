@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Xác thực Email | USDT P2P</title>
+		<meta name="description" content="Xác thực email để bắt đầu giao dịch">
+		<script type="text/javascript">
+			const API_URL = "https://panel.dongnai.net/api/v2/";
+		</script>
+		<style>
+		.hidden {
+			display: none;
+		}
+		</style>
+		<link rel="stylesheet" href="../assets/css/styles.css" />
+		
+		<script src="../assets/js/libs/notification.js" defer></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				window.fastNotice = new FastNotice({
+					position: 'top-center',
+					duration: 3000,
+					maxNotifications: 3
+				});
+			});
+		</script>
+		<script src="../assets/js/lucide-custom.min.js" defer></script>
+		<script src="../assets/js/libs/jmodal.1.1.0.js" defer></script>
+		<script src="../assets/js/header.js" defer></script>
+		<script src="../assets/js/libs/alpinejs.3.15.0.js" defer></script>
+	</head>
+	<body class="min-h-screen">
+		<!-- header -->
+		<!-- include:../blocks/header.html -->
+
+		<!-- Main Content -->
+		<main class="min-h-screen py-12 lg:py-20 bg-gradient-crypto flex items-center">
+			<div class="absolute inset-0  opacity-5"></div>
+			<div class="absolute inset-0 bg-wave-pattern opacity-10"></div>
+			<div class="container relative z-10">
+				<div class="max-w-md mx-auto">
+					<div class="glass-strong rounded-2xl p-8 lg:p-10 text-center">
+						<div class="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+							<i data-lucide="mail" class="w-10 h-10 text-blue-400"></i>
+						</div>
+						
+						<h1 class="text-3xl lg:text-4xl font-bold text-white mb-4">Xác thực Email</h1>
+						<p class="text-gray-300 mb-8">
+							Bạn cần xác thực email trước khi giao dịch. Chúng tôi đã gửi link xác thực đến email của bạn.
+						</p>
+
+						<div class="space-y-4">
+							<button class="btn btn-neon w-full" x-data="{ isLoading: false }" @click="isLoading = true; setTimeout(() => { isLoading = false; fastNotice.success('Đã gửi lại email xác thực!'); }, 1000)">
+								<span x-show="!isLoading">Gửi lại email</span>
+								<span x-show="isLoading">Đang gửi...</span>
+							</button>
+							
+							<a href="/auth/login" class="btn btn-outline-modern w-full">Quay lại đăng nhập</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<!-- include:../blocks/footer.html -->
+	</body>
+</html>
+

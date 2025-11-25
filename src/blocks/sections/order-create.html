@@ -1,0 +1,185 @@
+<!-- Order Create Section -->
+<section class="py-8 lg:py-12 " x-data="orderCreateComponent()">
+  <div class="absolute inset-0 bg-wave-pattern opacity-10"></div>
+  <div class="container relative z-10 max-w-4xl">
+    <!-- Page Header -->
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center space-x-2 px-4 py-2 bg-orange-500/20 rounded-full mb-4">
+        <i data-lucide="file-plus" class="w-5 h-5 text-orange-400"></i>
+        <span class="text-orange-400 font-semibold text-sm">Tạo lệnh mới</span>
+      </div>
+      <h1 class="text-3xl lg:text-4xl font-bold mb-3 text-gradient-neon">Tạo lệnh giao dịch</h1>
+      <p class="text-white text-lg">Kết nối với đối tác và bắt đầu giao dịch an toàn</p>
+    </div>
+    
+    <!-- Partner Info Card -->
+    <div class="glass-strong rounded-xl p-6 lg:p-8 mb-6">
+      <div class="flex items-center space-x-4 mb-6">
+        <img :src="partnerInfo.avatar" :alt="partnerInfo.name" class="w-16 h-16 rounded-full border-2 border-orange-500/50">
+        <div class="flex-1">
+          <div class="flex items-center space-x-2 mb-2">
+            <h2 class="text-2xl font-bold text-white" x-text="partnerInfo.name"></h2>
+            <i x-show="partnerInfo.verified" data-lucide="award" class="w-6 h-6 text-green-400 fill-green-400"></i>
+            <i x-show="partnerInfo.premium" data-lucide="gem" class="w-5 h-5 text-white"></i>
+          </div>
+          <div class="flex items-center space-x-4 text-sm text-white">
+            <div class="flex items-center space-x-1">
+              <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+              <span x-text="partnerInfo.rating"></span>
+              <span x-text="'(' + partnerInfo.reviews + ')'"></span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <i data-lucide="circle" class="w-2 h-2" :class="partnerInfo.online ? 'text-green-400 fill-green-400' : 'text-gray-400 fill-gray-400'"></i>
+              <span :class="partnerInfo.online ? 'text-green-400' : 'text-gray-400'" x-text="partnerInfo.online ? 'Online' : 'Offline'"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="glass rounded-xl p-4">
+          <div class="text-sm text-gray-300 mb-2" x-text="orderType === 'buy' ? 'Giá bán:' : 'Giá mua:'"></div>
+          <div class="text-2xl font-bold" :class="orderType === 'buy' ? 'text-white' : 'text-white'" x-text="partnerInfo.price + ' VND'"></div>
+        </div>
+        <div class="glass rounded-xl p-4">
+          <div class="text-sm text-gray-300 mb-2">Giới hạn:</div>
+          <div class="text-lg font-bold text-white" x-text="partnerInfo.limit"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Order Form -->
+    <div class="glass-strong rounded-xl p-6 lg:p-8">
+      <h3 class="text-xl font-bold text-white mb-6">Thông tin lệnh</h3>
+      
+      <form @submit.prevent="submitOrder()" class="space-y-6">
+        <!-- Amount Input -->
+        <div>
+          <label class="block text-sm font-medium text-white mb-2">
+            Số lượng USDT <span class="text-red-400">*</span>
+          </label>
+          <div class="relative">
+            <input 
+              type="number" 
+              x-model="orderForm.amount"
+              step="0.01"
+              min="0"
+              :placeholder="'Nhập số lượng (Limit: ' + partnerInfo.limit + ')'"
+              class="input w-full bg-white/10 border-white/20 text-white placeholder:text-gray-300"
+              required>
+            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300">USDT</span>
+          </div>
+          <p class="text-xs text-gray-300 mt-1" x-show="orderForm.amount">
+            Tương đương: <span class="text-white font-medium" x-text="calculateVND()"></span> VND
+          </p>
+        </div>
+        
+        <!-- Payment Method -->
+        <div>
+          <label class="block text-sm font-medium text-white mb-2">
+            Phương thức thanh toán <span class="text-red-400">*</span>
+          </label>
+          <select 
+            x-model="orderForm.paymentMethod"
+            class="input w-full bg-white/10 border-white/20 text-white"
+            required>
+            <option value="">Chọn phương thức</option>
+            <option value="bank">Chuyển khoản ngân hàng</option>
+            <option value="ewallet">Ví điện tử</option>
+            <option value="cash">Tiền mặt</option>
+          </select>
+        </div>
+        
+        <!-- Message -->
+        <div>
+          <label class="block text-sm font-medium text-white mb-2">
+            Lời nhắn (tùy chọn)
+          </label>
+          <textarea 
+            x-model="orderForm.message"
+            rows="4"
+            placeholder="Nhắn gửi đối tác..."
+            class="input w-full bg-white/10 border-white/20 text-white placeholder:text-gray-300 resize-none"></textarea>
+        </div>
+        
+        <!-- Important Notice -->
+        <div class="glass rounded-xl p-4 border-yellow-400/30 bg-yellow-500/5">
+          <div class="flex items-start space-x-3">
+            <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
+            <div class="text-sm text-yellow-200">
+              <p class="font-semibold mb-1">Lưu ý quan trọng:</p>
+              <ul class="list-disc list-inside space-y-1 text-xs">
+                <li>Khi tạo lệnh thành công, bạn sẽ nhận được thông tin liên hệ của đối tác</li>
+                <li>Giao dịch được thực hiện trực tiếp bên ngoài sàn</li>
+                <li>Sàn không giữ tiền, không thực hiện thanh toán</li>
+                <li>Vui lòng giao dịch cẩn thận và đánh giá sau khi hoàn thành</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Submit Button -->
+        <div class="flex gap-4">
+          <button 
+            type="submit" 
+            :disabled="isSubmitting"
+            class="btn btn-lg btn-neon text-white flex-1">
+            <span x-show="!isSubmitting">
+              <span x-text="orderType === 'buy' ? 'Tạo lệnh mua' : 'Tạo lệnh bán'"></span>
+            </span>
+            <span x-show="isSubmitting" class="flex items-center">
+              <div class="loading loading-sm mr-2"></div>
+              Đang xử lý...
+            </span>
+          </button>
+          <a href="/p2p-list.html" class="btn btn-lg glass border-2 border-orange-500/50 text-white hover:bg-orange-500/20">
+            Hủy
+          </a>
+        </div>
+      </form>
+    </div>
+    
+    <!-- Contact Info (Hidden until order created) -->
+    <div x-show="orderCreated" class="glass-strong rounded-xl p-6 lg:p-8 mt-6 border-green-400/30">
+      <div class="flex items-center space-x-3 mb-4">
+        <i data-lucide="award" class="w-6 h-6 text-green-400 fill-green-400"></i>
+        <h3 class="text-xl font-bold text-white">Lệnh đã được tạo thành công!</h3>
+      </div>
+      
+      <div class="glass rounded-xl p-4 mb-4">
+        <p class="text-white text-sm mb-4">
+          Thông tin liên hệ của đối tác (chỉ bạn và đối tác mới thấy):
+        </p>
+        <div class="space-y-3">
+          <div>
+            <span class="text-gray-300 text-sm">Tên:</span>
+            <span class="text-white font-medium ml-2" x-text="contactInfo.name"></span>
+          </div>
+          <div>
+            <span class="text-gray-300 text-sm">Email:</span>
+            <span class="text-white font-medium ml-2" x-text="contactInfo.email"></span>
+          </div>
+          <div>
+            <span class="text-gray-300 text-sm">Số điện thoại:</span>
+            <span class="text-white font-medium ml-2" x-text="contactInfo.phone"></span>
+          </div>
+          <div x-show="contactInfo.telegram">
+            <span class="text-gray-300 text-sm">Telegram:</span>
+            <span class="text-white font-medium ml-2" x-text="contactInfo.telegram"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex gap-4">
+        <button @click="copyContactInfo()" class="btn btn-neon text-white">
+          <i data-lucide="copy" class="w-4 h-4 mr-2"></i>
+          Sao chép thông tin
+        </button>
+        <a href="/p2p-list.html" class="btn glass border-2 border-orange-500/50 text-white hover:bg-orange-500/20">
+          Quay lại danh sách
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

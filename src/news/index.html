@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tin tức & Blog | USDT P2P</title>
+		<meta name="description" content="Cập nhật mới nhất về thị trường và hướng dẫn giao dịch USDT P2P">
+		<script type="text/javascript">
+			const API_URL = "https://panel.dongnai.net/api/v2/";
+		</script>
+		<style>
+		.hidden {
+			display: none;
+		}
+		</style>
+		<link rel="stylesheet" href="../assets/css/styles.css" />
+		
+		<script src="../assets/js/libs/notification.js" defer></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				window.fastNotice = new FastNotice({
+					position: 'top-center',
+					duration: 3000,
+					maxNotifications: 3
+				});
+			});
+		</script>
+		<script src="../assets/js/lucide-custom.min.js" defer></script>
+		<script src="../assets/js/libs/jmodal.1.1.0.js" defer></script>
+		<script src="../assets/js/libs/tabs.js" defer></script>
+		<script src="../assets/js/header.js" defer></script>
+		<script src="../assets/js/libs/alpinejs.3.15.0.js" defer></script>
+	</head>
+	<body class="min-h-screen">
+		<!-- header -->
+		<!-- include:../blocks/header.html -->
+
+		<!-- Banner Header with Search -->
+		<section class="relative py-16 lg:py-24">
+			
+			<div class="container relative z-10">
+				<div class="text-center mb-8">
+					<h1 class="text-4xl lg:text-6xl font-bold text-white mb-4 text-gradient-neon">
+						Tin tức & Blog
+					</h1>
+					<p class="text-gray-300 text-lg lg:text-xl max-w-2xl mx-auto mb-8">
+						Cập nhật mới nhất về thị trường crypto, hướng dẫn giao dịch và phân tích xu hướng
+					</p>
+				</div>
+
+				<!-- Search Bar -->
+				<div class="max-w-2xl mx-auto mb-8">
+					<div class="relative">
+						<input 
+							type="text" 
+							placeholder="Tìm kiếm bài viết..." 
+							class="w-full px-6 py-4 pl-12 glass rounded-xl border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/20 transition-all"
+						>
+						<i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+					</div>
+				</div>
+
+				<!-- Category Tabs -->
+				<div class="flex flex-wrap items-center justify-center gap-3">
+					<button class="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg font-semibold text-sm shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 transition-all">
+						Tất cả
+					</button>
+					<button class="px-6 py-2.5 glass text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-all">
+						Hướng dẫn
+					</button>
+					<button class="px-6 py-2.5 glass text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-all">
+						Thị trường
+					</button>
+					<button class="px-6 py-2.5 glass text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-all">
+						Bảo mật
+					</button>
+					<button class="px-6 py-2.5 glass text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-all">
+						Phân tích
+					</button>
+					<button class="px-6 py-2.5 glass text-white rounded-lg font-medium text-sm hover:bg-white/10 transition-all">
+						Tin tức
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- Main Content -->
+		<main class="min-h-screen py-8 lg:py-12 bg-gradient-crypto  relative">
+			<div class="absolute inset-0 bg-wave-pattern opacity-4"></div>
+			<div class="container relative z-10">
+				<div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
+					<!-- Main Content Area -->
+					<div class="lg:col-span-2 space-y-8">
+						<!-- Featured Article -->
+						<article class="glass-strong rounded-2xl overflow-hidden glass-hover group relative">
+							<div class="relative h-64 lg:h-80 overflow-hidden">
+								<img 
+									src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&q=80" 
+									alt="Featured Article" 
+									class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+									loading="eager"
+								>
+								<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+								<div class="absolute top-6 left-6">
+									<span class="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg shadow-orange-500/30">
+										Featured
+									</span>
+								</div>
+								<div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+									<div class="flex items-center gap-4 text-white/80 text-xs mb-3">
+										<div class="flex items-center gap-2">
+											<i data-lucide="calendar" class="w-4 h-4"></i>
+											<span>15 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-white/40 rounded-full"></div>
+										<div class="flex items-center gap-2">
+											<i data-lucide="clock" class="w-4 h-4"></i>
+											<span>8 phút đọc</span>
+										</div>
+										<div class="w-1 h-1 bg-white/40 rounded-full"></div>
+										<div class="flex items-center gap-2">
+											<i data-lucide="eye" class="w-4 h-4"></i>
+											<span>2.5K lượt xem</span>
+										</div>
+									</div>
+									<h2 class="text-2xl lg:text-3xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors">
+										Hướng dẫn giao dịch USDT P2P an toàn cho người mới bắt đầu
+									</h2>
+									<p class="text-gray-200 text-sm lg:text-base line-clamp-2 mb-4">
+										Tìm hiểu các bước cơ bản để bắt đầu giao dịch USDT P2P một cách an toàn và hiệu quả. Những lưu ý quan trọng và best practices bạn cần biết.
+									</p>
+									<a href="/news/detail.html" class="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 font-semibold text-sm group-hover:gap-3 transition-all">
+										Đọc bài viết đầy đủ
+										<i data-lucide="arrow-right" class="w-4 h-4"></i>
+									</a>
+								</div>
+							</div>
+						</article>
+
+						<!-- News Grid -->
+						<div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+							<!-- News Item 1 -->
+							<article class="glass rounded-xl overflow-hidden glass-hover group relative">
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" 
+										alt="News" 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+										loading="lazy"
+									>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div class="absolute top-4 left-4">
+										<span class="bg-blue-500/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+											Thị trường
+										</span>
+									</div>
+								</div>
+								<div class="p-6">
+									<div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+											<span>12 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="clock" class="w-3.5 h-3.5"></i>
+											<span>6 phút</span>
+										</div>
+									</div>
+									<h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+										Phân tích xu hướng giá USDT cuối năm 2024 và dự báo 2025
+									</h3>
+									<p class="text-gray-400 text-sm line-clamp-2 mb-4">
+										Cập nhật phân tích chi tiết về xu hướng giá USDT và dự báo thị trường cho năm tới.
+									</p>
+									<div class="flex items-center justify-between pt-4 border-t border-white/5">
+										<div class="flex items-center gap-2 text-xs text-gray-500">
+											<i data-lucide="user" class="w-3.5 h-3.5"></i>
+											<span>Admin</span>
+										</div>
+										<a href="/news/detail.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-2 group/link">
+											Đọc thêm
+											<i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+
+							<!-- News Item 2 -->
+							<article class="glass rounded-xl overflow-hidden glass-hover group relative">
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=800&q=80" 
+										alt="News" 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+										loading="lazy"
+									>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div class="absolute top-4 left-4">
+										<span class="bg-green-500/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+											Bảo mật
+										</span>
+									</div>
+								</div>
+								<div class="p-6">
+									<div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+											<span>10 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="clock" class="w-3.5 h-3.5"></i>
+											<span>5 phút</span>
+										</div>
+									</div>
+									<h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+										Cách bảo vệ tài khoản khỏi lừa đảo khi giao dịch P2P
+									</h3>
+									<p class="text-gray-400 text-sm line-clamp-2 mb-4">
+										Những lưu ý quan trọng để tránh lừa đảo và bảo vệ tài khoản của bạn an toàn.
+									</p>
+									<div class="flex items-center justify-between pt-4 border-t border-white/5">
+										<div class="flex items-center gap-2 text-xs text-gray-500">
+											<i data-lucide="user" class="w-3.5 h-3.5"></i>
+											<span>Admin</span>
+										</div>
+										<a href="/news/detail.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-2 group/link">
+											Đọc thêm
+											<i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+
+							<!-- News Item 3 -->
+							<article class="glass rounded-xl overflow-hidden glass-hover group relative">
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src="https://images.unsplash.com/photo-1639322537504-64f0e16d0d28?w=800&q=80" 
+										alt="News" 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+										loading="lazy"
+									>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div class="absolute top-4 left-4">
+										<span class="bg-purple-500/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+											Phân tích
+										</span>
+									</div>
+								</div>
+								<div class="p-6">
+									<div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+											<span>8 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="clock" class="w-3.5 h-3.5"></i>
+											<span>10 phút</span>
+										</div>
+									</div>
+									<h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+										So sánh các phương thức thanh toán trong giao dịch P2P
+									</h3>
+									<p class="text-gray-400 text-sm line-clamp-2 mb-4">
+										Đánh giá chi tiết các phương thức thanh toán phổ biến và ưu nhược điểm của từng loại.
+									</p>
+									<div class="flex items-center justify-between pt-4 border-t border-white/5">
+										<div class="flex items-center gap-2 text-xs text-gray-500">
+											<i data-lucide="user" class="w-3.5 h-3.5"></i>
+											<span>Admin</span>
+										</div>
+										<a href="/news/detail.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-2 group/link">
+											Đọc thêm
+											<i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+
+							<!-- News Item 4 -->
+							<article class="glass rounded-xl overflow-hidden glass-hover group relative">
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" 
+										alt="News" 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+										loading="lazy"
+									>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div class="absolute top-4 left-4">
+										<span class="bg-amber-500/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+											Hướng dẫn
+										</span>
+									</div>
+								</div>
+								<div class="p-6">
+									<div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+											<span>5 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="clock" class="w-3.5 h-3.5"></i>
+											<span>7 phút</span>
+										</div>
+									</div>
+									<h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+										Hướng dẫn xác minh danh tính và tăng hạn mức giao dịch
+									</h3>
+									<p class="text-gray-400 text-sm line-clamp-2 mb-4">
+										Quy trình xác minh KYC đơn giản và nhanh chóng để tăng hạn mức giao dịch của bạn.
+									</p>
+									<div class="flex items-center justify-between pt-4 border-t border-white/5">
+										<div class="flex items-center gap-2 text-xs text-gray-500">
+											<i data-lucide="user" class="w-3.5 h-3.5"></i>
+											<span>Admin</span>
+										</div>
+										<a href="/news/detail.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-2 group/link">
+											Đọc thêm
+											<i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+
+							<!-- News Item 5 -->
+							<article class="glass rounded-xl overflow-hidden glass-hover group relative">
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src="https://images.unsplash.com/photo-1639322537504-64f0e16d0d28?w=800&q=80" 
+										alt="News" 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+										loading="lazy"
+									>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div class="absolute top-4 left-4">
+										<span class="bg-red-500/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+											Tin tức
+										</span>
+									</div>
+								</div>
+								<div class="p-6">
+									<div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+											<span>3 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="clock" class="w-3.5 h-3.5"></i>
+											<span>4 phút</span>
+										</div>
+									</div>
+									<h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+										Cập nhật tính năng mới: Hỗ trợ đa ví và tích hợp API
+									</h3>
+									<p class="text-gray-400 text-sm line-clamp-2 mb-4">
+										Khám phá các tính năng mới giúp giao dịch trở nên thuận tiện và hiệu quả hơn.
+									</p>
+									<div class="flex items-center justify-between pt-4 border-t border-white/5">
+										<div class="flex items-center gap-2 text-xs text-gray-500">
+											<i data-lucide="user" class="w-3.5 h-3.5"></i>
+											<span>Admin</span>
+										</div>
+										<a href="/news/detail.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-2 group/link">
+											Đọc thêm
+											<i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+
+							<!-- News Item 6 -->
+							<article class="glass rounded-xl overflow-hidden glass-hover group relative">
+								<div class="relative h-48 overflow-hidden">
+									<img 
+										src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80" 
+										alt="News" 
+										class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+										loading="lazy"
+									>
+									<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div class="absolute top-4 left-4">
+										<span class="bg-indigo-500/80 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+											Thị trường
+										</span>
+									</div>
+								</div>
+								<div class="p-6">
+									<div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+											<span>1 Tháng 12, 2024</span>
+										</div>
+										<div class="w-1 h-1 bg-gray-600 rounded-full"></div>
+										<div class="flex items-center gap-1.5">
+											<i data-lucide="clock" class="w-3.5 h-3.5"></i>
+											<span>9 phút</span>
+										</div>
+									</div>
+									<h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2 min-h-[3.5rem]">
+										Xu hướng DeFi và tác động đến thị trường P2P
+									</h3>
+									<p class="text-gray-400 text-sm line-clamp-2 mb-4">
+										Phân tích về sự phát triển của DeFi và cách nó ảnh hưởng đến giao dịch P2P.
+									</p>
+									<div class="flex items-center justify-between pt-4 border-t border-white/5">
+										<div class="flex items-center gap-2 text-xs text-gray-500">
+											<i data-lucide="user" class="w-3.5 h-3.5"></i>
+											<span>Admin</span>
+										</div>
+										<a href="/news/detail.html" class="text-orange-400 hover:text-orange-300 text-sm font-medium flex items-center gap-2 group/link">
+											Đọc thêm
+											<i data-lucide="arrow-right" class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"></i>
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+
+						<!-- Pagination -->
+						<div class="flex items-center justify-center gap-2 pt-8">
+							<button class="px-4 py-2 glass rounded-lg text-white hover:bg-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+								<i data-lucide="chevron-left" class="w-4 h-4"></i>
+							</button>
+							<button class="px-5 py-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg font-semibold text-sm shadow-lg shadow-orange-500/30">
+								1
+							</button>
+							<button class="px-5 py-2 glass rounded-lg text-white hover:bg-white/10 transition-all font-medium">
+								2
+							</button>
+							<button class="px-5 py-2 glass rounded-lg text-white hover:bg-white/10 transition-all font-medium">
+								3
+							</button>
+							<button class="px-5 py-2 glass rounded-lg text-white hover:bg-white/10 transition-all font-medium">
+								4
+							</button>
+							<span class="px-2 text-gray-500">...</span>
+							<button class="px-5 py-2 glass rounded-lg text-white hover:bg-white/10 transition-all font-medium">
+								10
+							</button>
+							<button class="px-4 py-2 glass rounded-lg text-white hover:bg-white/10 transition-all">
+								<i data-lucide="chevron-right" class="w-4 h-4"></i>
+							</button>
+						</div>
+					</div>
+
+					<!-- Sidebar -->
+					<aside class="lg:col-span-1 space-y-6">
+						<!-- Categories -->
+						<div class="glass rounded-xl p-6">
+							<h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+								<i data-lucide="folder" class="w-5 h-5 text-orange-400"></i>
+								Danh mục
+							</h3>
+							<ul class="space-y-2">
+								<li>
+									<a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+										<span class="text-gray-300 group-hover:text-white">Hướng dẫn</span>
+										<span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">12</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+										<span class="text-gray-300 group-hover:text-white">Thị trường</span>
+										<span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">8</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+										<span class="text-gray-300 group-hover:text-white">Bảo mật</span>
+										<span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">15</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+										<span class="text-gray-300 group-hover:text-white">Phân tích</span>
+										<span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">6</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+										<span class="text-gray-300 group-hover:text-white">Tin tức</span>
+										<span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">9</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Popular Posts -->
+						<div class="glass rounded-xl p-6">
+							<h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+								<i data-lucide="trending-up" class="w-5 h-5 text-orange-400"></i>
+								Bài viết phổ biến
+							</h3>
+							<div class="space-y-4">
+								<a href="#" class="flex gap-3 group">
+									<div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
+										<img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=200&q=80" alt="Popular" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+									</div>
+									<div class="flex-1 min-w-0">
+										<h4 class="text-sm font-semibold text-white mb-1 line-clamp-2 group-hover:text-orange-400 transition-colors">
+											Hướng dẫn giao dịch USDT P2P an toàn
+										</h4>
+										<div class="flex items-center gap-2 text-xs text-gray-400">
+											<i data-lucide="calendar" class="w-3 h-3"></i>
+											<span>15 Tháng 12</span>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="flex gap-3 group">
+									<div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
+										<img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=200&q=80" alt="Popular" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+									</div>
+									<div class="flex-1 min-w-0">
+										<h4 class="text-sm font-semibold text-white mb-1 line-clamp-2 group-hover:text-orange-400 transition-colors">
+											Phân tích xu hướng giá USDT 2024
+										</h4>
+										<div class="flex items-center gap-2 text-xs text-gray-400">
+											<i data-lucide="calendar" class="w-3 h-3"></i>
+											<span>12 Tháng 12</span>
+										</div>
+									</div>
+								</a>
+								<a href="#" class="flex gap-3 group">
+									<div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
+										<img src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=200&q=80" alt="Popular" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+									</div>
+									<div class="flex-1 min-w-0">
+										<h4 class="text-sm font-semibold text-white mb-1 line-clamp-2 group-hover:text-orange-400 transition-colors">
+											Cách bảo vệ tài khoản khỏi lừa đảo
+										</h4>
+										<div class="flex items-center gap-2 text-xs text-gray-400">
+											<i data-lucide="calendar" class="w-3 h-3"></i>
+											<span>10 Tháng 12</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+
+						<!-- Newsletter -->
+						<div class="glass rounded-xl p-6 bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/20">
+							<div class="text-center">
+								<div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-4">
+									<i data-lucide="mail" class="w-8 h-8 text-white"></i>
+								</div>
+								<h3 class="text-xl font-bold text-white mb-2">Đăng ký nhận tin</h3>
+								<p class="text-gray-300 text-sm mb-4">
+									Nhận thông báo về bài viết mới và cập nhật thị trường
+								</p>
+								<form class="space-y-3">
+									<input 
+										type="email" 
+										placeholder="Email của bạn" 
+										class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/20 transition-all"
+									>
+									<button type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg font-semibold hover:from-orange-600 hover:to-amber-600 transition-all shadow-lg shadow-orange-500/30">
+										Đăng ký ngay
+									</button>
+								</form>
+							</div>
+						</div>
+
+						<!-- Tags -->
+						<div class="glass rounded-xl p-6">
+							<h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+								<i data-lucide="tag" class="w-5 h-5 text-orange-400"></i>
+								Thẻ phổ biến
+							</h3>
+							<div class="flex flex-wrap gap-2">
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									USDT
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									P2P
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									Crypto
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									Trading
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									Security
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									Blockchain
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									DeFi
+								</a>
+								<a href="#" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-lg text-sm transition-all">
+									Bitcoin
+								</a>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</main>
+
+		<!-- Footer -->
+		<!-- include:../blocks/footer.html -->
+	</body>
+</html>

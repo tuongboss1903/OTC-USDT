@@ -1,0 +1,81 @@
+<!-- FAQ Section -->
+<section class="py-12 lg:py-16 ">
+
+  <div class="container relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4 text-gradient-neon">Câu hỏi thường gặp</h2>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        Giải đáp các thắc mắc phổ biến về nền tảng, cách sử dụng và các vấn đề liên quan
+      </p>
+    </div>
+    
+    <div class="max-w-5xl mx-auto space-y-4">
+      <!-- FAQ Item 1 -->
+      <div class="glass rounded-xl p-6 glass-hover" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between text-left">
+          <h3 class="text-lg font-bold text-white">Sàn có giữ tiền hay thực hiện thanh toán không?</h3>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" class="mt-4 text-gray-300 text-sm leading-relaxed" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+          <p>Không. Sàn chỉ là nền tảng kết nối, không thực hiện thanh toán, không giữ tiền, không có ví. Tất cả giao dịch được thực hiện trực tiếp giữa người mua và người bán bên ngoài sàn.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 2 -->
+      <div class="glass rounded-xl p-6 glass-hover" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between text-left">
+          <h3 class="text-lg font-bold text-white">Tại sao cần xác thực email?</h3>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" class="mt-4 text-gray-300 text-sm leading-relaxed" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+          <p>Xác thực email là bắt buộc để chống spam và ngăn chặn việc tạo nhiều tài khoản để crawl dữ liệu. Chỉ khi email đã được xác thực, bạn mới có thể tạo lệnh mua/bán và xem thông tin liên hệ.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 3 -->
+      <div class="glass rounded-xl p-6 glass-hover" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between text-left">
+          <h3 class="text-lg font-bold text-white">Ký quỹ là gì và có bắt buộc không?</h3>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" class="mt-4 text-gray-300 text-sm leading-relaxed" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+          <p>Ký quỹ là số tiền seller đặt cọc để tăng độ tin cậy. Khi seller gian lận, sàn sẽ sử dụng số tiền ký quỹ để bồi thường cho buyer. Ký quỹ không bắt buộc nhưng giúp tăng uy tín và thu hút nhiều giao dịch hơn.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 4 -->
+      <div class="glass rounded-xl p-6 glass-hover" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between text-left">
+          <h3 class="text-lg font-bold text-white">Tick xanh và tick kim cương là gì?</h3>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" class="mt-4 text-gray-300 text-sm leading-relaxed" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+          <p>Đây là các gói nâng cấp uy tín. Tick xanh (Verified) và tick kim cương (Premium) giúp tài khoản của bạn nổi bật hơn, tăng độ tin cậy và thu hút nhiều đối tác giao dịch hơn. Bạn có thể nâng cấp trong phần Profile.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 5 -->
+      <div class="glass rounded-xl p-6 glass-hover" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between text-left">
+          <h3 class="text-lg font-bold text-white">Điều gì xảy ra khi tôi bấm "Mua" hoặc "Bán"?</h3>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" class="mt-4 text-gray-300 text-sm leading-relaxed" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+          <p>Khi buyer bấm "Mua", seller sẽ nhận được thông tin liên hệ của buyer. Khi seller bấm "Bán", buyer sẽ nhận được thông tin liên hệ của seller. Chỉ 2 bên trong giao dịch mới được thấy thông tin của nhau để tránh spam và crawler.</p>
+        </div>
+      </div>
+      
+      <!-- FAQ Item 6 -->
+      <div class="glass rounded-xl p-6 glass-hover" x-data="{ open: false }">
+        <button @click="open = !open" class="w-full flex items-center justify-between text-left">
+          <h3 class="text-lg font-bold text-white">Tỷ lệ fail cao sẽ bị khóa không?</h3>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform" :class="open ? 'rotate-180' : ''"></i>
+        </button>
+        <div x-show="open" class="mt-4 text-gray-300 text-sm leading-relaxed" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-95" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-95">
+          <p>Có. User có tỷ lệ giao dịch fail cao sẽ bị khóa chức năng giao dịch tự động hoặc bởi admin để đảm bảo chất lượng cộng đồng và bảo vệ người dùng khác.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
