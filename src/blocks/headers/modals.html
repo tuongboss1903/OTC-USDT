@@ -229,3 +229,97 @@
       </div>
     </div>
   </div>
+
+  <!-- Search Modal - Using jModal -->
+  <div id="searchModal" class="jmodal hidden">
+    <div class="jmodal-content w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-4 sm:p-6 !pb-0">
+        <h3 class="text-responsive-lg font-bold text-gray-900">Tìm kiếm</h3>
+        <button data-jmodal-close class="text-gray-400 hover:text-gray-600 transition-colors p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4 sm:p-6">
+        <!-- Search Input -->
+        <form @submit.prevent="handleSearch()" class="space-y-4">
+          <div class="relative">
+            <div class="input-icon">
+              <input 
+                type="text" 
+                id="searchInput" 
+                x-model="searchQuery"
+                @input="performSearch()"
+                class="input input-lg rounded-lg pr-12" 
+                placeholder="Tìm kiếm sản phẩm, người dùng, tin tức..."
+                autocomplete="off">
+              <i data-lucide="search" class="icon"></i>
+            </div>
+            <button 
+              type="submit" 
+              class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-gray-600 transition-colors"
+              aria-label="Search">
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </form>
+        
+        <!-- Search Results -->
+        <div x-show="searchResults.length > 0 || searchQuery.length > 0" class="mt-6">
+          <div x-show="isSearching" class="flex items-center justify-center py-8">
+            <div class="loading loading-lg"></div>
+            <span class="ml-3 text-gray-600">Đang tìm kiếm...</span>
+          </div>
+          
+          <div x-show="!isSearching && searchResults.length > 0" class="space-y-2">
+            <h4 class="text-sm font-semibold text-gray-700 mb-3">Kết quả tìm kiếm</h4>
+            <template x-for="result in searchResults" :key="result.id">
+              <a :href="result.url" class="block p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors">
+                <div class="flex items-start space-x-3">
+                  <div class="flex-shrink-0">
+                    <i :data-lucide="result.icon" class="w-5 h-5 text-gray-400"></i>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium text-gray-900" x-text="result.title"></p>
+                    <p class="text-xs text-gray-500 mt-1" x-text="result.description"></p>
+                  </div>
+                </div>
+              </a>
+            </template>
+          </div>
+          
+          <div x-show="!isSearching && searchQuery.length > 0 && searchResults.length === 0" class="text-center py-8">
+            <i data-lucide="search-x" class="w-12 h-12 text-gray-300 mx-auto mb-3"></i>
+            <p class="text-gray-500">Không tìm thấy kết quả nào cho "<span x-text="searchQuery"></span>"</p>
+          </div>
+        </div>
+        
+        <!-- Popular Searches -->
+        <div x-show="searchQuery.length === 0" class="mt-6">
+          <h4 class="text-sm font-semibold text-gray-700 mb-3">Tìm kiếm phổ biến</h4>
+          <div class="flex flex-wrap gap-2">
+            <button 
+              @click="searchQuery = 'USDT'; performSearch()" 
+              class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors">
+              USDT
+            </button>
+            <button 
+              @click="searchQuery = 'Bitcoin'; performSearch()" 
+              class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors">
+              Bitcoin
+            </button>
+            <button 
+              @click="searchQuery = 'P2P'; performSearch()" 
+              class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors">
+              P2P
+            </button>
+            <button 
+              @click="searchQuery = 'Giao dịch'; performSearch()" 
+              class="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors">
+              Giao dịch
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

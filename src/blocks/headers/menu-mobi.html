@@ -2,64 +2,94 @@
 <div id="mobileMenuModal" class="jmodal hidden lg:hidden">
   <div class="jmodal-slide-right bg-gradient-to-b from-slate-900 to-slate-800">
     <!-- Mobile Menu Header -->
-    <div class="bg-gradient-to-br from-orange-900 to-amber-900 p-6 text-white">
-      <div class="flex items-center justify-between mb-4">
+    <div class="bg-gradient-to-br from-orange-900 to-amber-900 p-4 sm:p-5 text-white">
+      <div class="flex items-center justify-between mb-3">
         <div>
-          <h2 class="text-xl font-bold">Menu</h2>
-          <p class="text-gray-300 text-sm">USDT P2P Trading</p>
+          <h2 class="text-lg sm:text-xl font-bold">Menu</h2>
+          <p class="text-gray-300 text-xs sm:text-sm">USDT P2P Trading</p>
         </div>
-        <button data-jmodal-close class="text-white hover:text-gray-200 transition-colors">
-          <i data-lucide="x" class="w-6 h-6"></i>
+        <button data-jmodal-close class="text-white hover:text-gray-200 transition-colors p-1">
+          <i data-lucide="x" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </button>
       </div>
       <!-- Mobile Search -->
-      <form action="search.html" method="GET" class="relative">
+      <button @click="openSearchModal(); closeMobileMenu();" class="w-full relative">
         <i data-lucide="search"
-          class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
-        <input type="text" name="q" placeholder="Tìm kiếm..."
-          class="input pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-white/50">
-      </form>
+          class="absolute left-2.5 sm:left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5 pointer-events-none"></i>
+        <input type="text" placeholder="Tìm kiếm..." readonly
+          class="input pl-9 sm:pl-10 pr-3 py-2 sm:py-2.5 text-sm bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-white/50 cursor-pointer rounded-lg">
+      </button>
     </div>
 
     <!-- Mobile Menu Items -->
-    <div class="flex-1 overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 280px);">
-      <nav class="p-4 space-y-2">
-        <a href="/" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+    <div class="flex-1 overflow-y-auto custom-scrollbar" style="max-height: calc(100vh - 240px);">
+      <nav class="p-3 sm:p-4 space-y-1.5 sm:space-y-2">
+        <a href="/" class="block px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors text-sm sm:text-base">
           Trang chủ
         </a>
-        <a href="/buy" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+        <a href="/category" class="block px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors text-sm sm:text-base">
+          Thị trường
+        </a>
+        <a href="/buy" class="block px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors text-sm sm:text-base">
           Mua USDT
         </a>
-        <a href="/sell" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+        <a href="/sell" class="block px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors text-sm sm:text-base">
           Bán USDT
         </a>
-        <a href="/news" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+        <a href="/news" class="block px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors text-sm sm:text-base">
           Tin tức
         </a>
-        <a href="/account" class="block px-4 py-3 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors">
+        <a href="/account" class="block px-3 sm:px-4 py-2 sm:py-2.5 bg-white/10 hover:bg-white/15 rounded-lg text-white transition-colors text-sm sm:text-base">
           Tài khoản của tôi
         </a>
       </nav>
       
+      <!-- Mobile Language Selector -->
+      <div class="px-3 sm:px-4 py-2.5 sm:py-3 border-t border-white/10">
+        <div class="flex items-center justify-between">
+          <span class="text-white/80 text-xs sm:text-sm">Ngôn ngữ</span>
+          <div class="relative" x-data="{ open: false }">
+            <button @click="open = !open" class="flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-3 py-1.5 sm:py-2 bg-white/10 hover:bg-white/15 rounded-lg text-white text-xs sm:text-sm transition-colors">
+              <span x-text="currentLanguage === 'vi' ? 'VN' : 'EN'"></span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform" :class="{'rotate-180': open}"></i>
+            </button>
+            <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-36 sm:w-40 bg-slate-800 rounded-lg shadow-lg border border-white/10 overflow-hidden z-50">
+              <button @click="changeLanguage('vi'); open = false" class="block w-full px-3 sm:px-4 py-2 text-left text-white hover:bg-white/10 transition-colors text-sm">
+                <span class="flex items-center space-x-2">
+                  <span>🇻🇳</span>
+                  <span>Tiếng Việt</span>
+                </span>
+              </button>
+              <button @click="changeLanguage('en'); open = false" class="block w-full px-3 sm:px-4 py-2 text-left text-white hover:bg-white/10 transition-colors text-sm">
+                <span class="flex items-center space-x-2">
+                  <span>🇺🇸</span>
+                  <span>English</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <!-- Mobile Auth Buttons -->
-      <div class="p-4 border-t border-white/10">
-        <div id="mobileLoginButtons" class="space-y-3">
-          <button @click="openAuthModal(); authTab = 'login'; closeMobileMenu();" class="w-full btn btn-outline border-white/30 text-white hover:bg-white/10">
+      <div class="p-3 sm:p-4 border-t border-white/10 space-y-2 sm:space-y-3">
+        <div id="mobileLoginButtons" class="space-y-2 sm:space-y-3">
+          <button @click="openAuthModal(); authTab = 'login'; closeMobileMenu();" class="w-full btn btn-outline border-white/30 text-white hover:bg-white/10 text-sm sm:text-base py-2 sm:py-2.5">
             Đăng nhập
           </button>
-          <button @click="openAuthModal(); authTab = 'register'; closeMobileMenu();" class="w-full btn bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white border-0">
+          <button @click="openAuthModal(); authTab = 'register'; closeMobileMenu();" class="w-full btn bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white border-0 text-sm sm:text-base py-2 sm:py-2.5">
             Đăng ký
           </button>
         </div>
-        <div id="mobileUserDropdown" class="hidden">
-          <div class="flex items-center space-x-3 px-4 py-3 bg-white/10 rounded-lg mb-3">
-            <img id="mobileUserAvatar" src="" alt="User" class="w-10 h-10 rounded-full">
-            <div class="flex-1">
-              <div id="mobileUserName" class="text-white font-medium"></div>
-              <div class="text-sm text-gray-400">Tài khoản của tôi</div>
+        <div id="mobileUserDropdown" class="hidden space-y-2 sm:space-y-3">
+          <div class="flex items-center space-x-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-white/10 rounded-lg">
+            <img id="mobileUserAvatar" src="" alt="User" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full">
+            <div class="flex-1 min-w-0">
+              <div id="mobileUserName" class="text-white font-medium text-sm sm:text-base truncate"></div>
+              <div class="text-xs sm:text-sm text-gray-400">Tài khoản của tôi</div>
             </div>
           </div>
-          <button @click="logout(); closeMobileMenu();" class="w-full btn btn-outline border-red-500/50 text-red-400 hover:bg-red-500/10">
+          <button @click="logout(); closeMobileMenu();" class="w-full btn btn-outline border-red-500/50 text-red-400 hover:bg-red-500/10 text-sm sm:text-base py-2 sm:py-2.5">
             Đăng xuất
           </button>
         </div>

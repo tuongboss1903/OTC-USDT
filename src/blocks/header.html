@@ -1,7 +1,7 @@
 <header class="glass-strong border-b border-white/10 shadow-lg sticky top-0 z-50 bg-gradient-crypto" x-data="headerComponent()">
   <!-- Main Header -->
-  <div class="container">
-    <div class="flex-between h-16">
+  <div class="container px-3 sm:px-4 md:px-6 lg:px-8">
+    <div class="flex-between h-14 sm:h-16">
       <!-- Logo -->
       <!-- include:headers/logo.html -->
       
@@ -9,40 +9,77 @@
       <!-- include:headers/menu-pc.html -->
       
       <!-- Right Actions -->
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-1 sm:space-x-2 md:space-x-4">
         <!-- Search Icon -->
-        <button class="p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Search">
-          <i data-lucide="search" class="w-5 h-5"></i>
+        <button @click="openSearchModal()" class="p-1.5 sm:p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Search">
+          <i data-lucide="search" class="w-4 h-4 sm:w-5 sm:h-5"></i>
         </button>
         
-        <!-- Language/Currency Selector -->
-        <div class="hidden md:flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/15 rounded-lg cursor-pointer transition-colors" x-data="{ open: false }" @click="open = !open">
-          <span class="text-white text-sm font-medium">VN</span>
-          <i data-lucide="chevron-down" class="w-4 h-4 text-white/80"></i>
+        <!-- Language Selector -->
+        <div class="hidden md:flex items-center relative" x-data="{ open: false }">
+          <button @click="open = !open" @click.away="open = false" class="flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/15 rounded-lg transition-colors">
+            <span class="text-white text-sm font-medium">VN</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/80 transition-transform" :class="{'rotate-180': open}"></i>
+          </button>
+          <div x-show="open" x-transition class="absolute top-full right-0 mt-2 w-40 bg-slate-800 rounded-lg shadow-lg border border-white/10 overflow-hidden z-50">
+            <button @click="changeLanguage('vi'); open = false" class="block w-full px-4 py-2 text-left text-white hover:bg-white/10 transition-colors">
+              <span class="flex items-center space-x-2">
+                <span>🇻🇳</span>
+                <span>Tiếng Việt</span>
+              </span>
+            </button>
+            <button @click="changeLanguage('en'); open = false" class="block w-full px-4 py-2 text-left text-white hover:bg-white/10 transition-colors">
+              <span class="flex items-center space-x-2">
+                <span>🇺🇸</span>
+                <span>English</span>
+              </span>
+            </button>
+          </div>
         </div>
         
         <!-- Login/Register Buttons -->
-        <div id="loginButtons" class="flex items-center space-x-3">
-          <button @click="openAuthModal(); authTab = 'login'" class="btn glass text-white border-white/20 hover:bg-white/10 hover:border-orange-400/50 transition-all">
+        <div id="loginButtons" class="hidden sm:flex items-center space-x-3">
+          <button @click="openAuthModal(); authTab = 'login'" class="btn glass text-white border-white/20 hover:bg-white/10 hover:border-orange-400/50 transition-all text-sm px-3 py-2">
             Đăng nhập
           </button>
-          <button @click="openAuthModal(); authTab = 'register'" class="btn btn-neon text-white">
+          <button @click="openAuthModal(); authTab = 'register'" class="btn btn-neon text-white text-sm px-3 py-2">
             Đăng ký
           </button>
         </div>
         
         <!-- User Dropdown (hidden when not logged in) -->
         <div id="userDropdown" class="hidden items-center space-x-3">
-          <div class="flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/15 rounded-lg cursor-pointer transition-colors" x-data="{ open: false }" @click="open = !open">
+          <div class="flex items-center space-x-2 px-3 py-2 bg-white/10 hover:bg-white/15 rounded-lg cursor-pointer transition-colors relative" x-data="{ open: false }" @click="open = !open" @click.away="open = false">
             <img id="userAvatar" src="" alt="User" class="w-8 h-8 rounded-full border-2 border-white/20">
             <span id="userName" class="text-white text-sm font-medium hidden lg:block"></span>
-            <i data-lucide="chevron-down" class="w-4 h-4 text-white/80"></i>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-white/80 transition-transform" :class="{'rotate-180': open}"></i>
+            <div x-show="open" x-transition class="absolute top-full right-0 mt-2 w-48 bg-slate-800 rounded-lg shadow-lg border border-white/10 overflow-hidden z-50">
+              <a href="/profile" class="block px-4 py-2 text-white hover:bg-white/10 transition-colors">
+                <span class="flex items-center space-x-2">
+                  <i data-lucide="user" class="w-4 h-4"></i>
+                  <span>Hồ sơ</span>
+                </span>
+              </a>
+              <a href="/account" class="block px-4 py-2 text-white hover:bg-white/10 transition-colors">
+                <span class="flex items-center space-x-2">
+                  <i data-lucide="settings" class="w-4 h-4"></i>
+                  <span>Tài khoản</span>
+                </span>
+              </a>
+              <hr class="border-white/10">
+              <button @click="logout(); open = false" class="block w-full px-4 py-2 text-left text-red-400 hover:bg-red-500/10 transition-colors">
+                <span class="flex items-center space-x-2">
+                  <i data-lucide="log-out" class="w-4 h-4"></i>
+                  <span>Đăng xuất</span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
         
         <!-- Mobile Menu Button -->
-        <button @click="openMobileMenu()" class="lg:hidden p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Menu">
-          <i data-lucide="menu" class="w-6 h-6"></i>
+        <button @click="openMobileMenu()" class="lg:hidden p-1.5 sm:p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-colors" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </button>
       </div>
     </div>

@@ -156,6 +156,11 @@ function headerComponent() {
         },
         isLoading: false,
         errors: {},
+        // Search functionality
+        searchQuery: '',
+        searchResults: [],
+        isSearching: false,
+        currentLanguage: 'vi',
 
         init() {
             console.log('Header component initialized.');
@@ -165,6 +170,10 @@ function headerComponent() {
             
             // Initialize auth
             this.initializeAuth();
+            
+            // Initialize language from localStorage
+            const savedLang = localStorage.getItem('app_language') || 'vi';
+            this.currentLanguage = savedLang;
 
             // Listen for events
             window.addEventListener('open-auth-modal', (event) => {
@@ -203,6 +212,27 @@ function headerComponent() {
             });
             
             window.jModal.init('#mobileMenuModal');
+            
+            window.jModal.init('#searchModal', {
+                onOpen: () => {
+                    // Focus search input when modal opens
+                    requestAnimationFrame(() => {
+                        const searchInput = document.getElementById('searchInput');
+                        if (searchInput) {
+                            searchInput.focus();
+                        }
+                        // Re-initialize Lucide icons
+                        if (window.lucide) {
+                            window.lucide.createIcons();
+                        }
+                    });
+                },
+                onClose: () => {
+                    // Clear search when modal closes
+                    this.searchQuery = '';
+                    this.searchResults = [];
+                }
+            });
         },
 
         // Modal control methods - Now using jModal instead of Alpine
@@ -713,6 +743,136 @@ function headerComponent() {
 
         clearAccessToken() {
             localStorage.removeItem('usstk');
+        },
+        
+        // ===========================================
+        // SEARCH FUNCTIONALITY
+        // ===========================================
+        openSearchModal() {
+            window.jModal.open('searchModal');
+        },
+        
+        closeSearchModal() {
+            window.jModal.close('searchModal');
+            this.searchQuery = '';
+            this.searchResults = [];
+        },
+        
+        async performSearch() {
+            if (!this.searchQuery || this.searchQuery.trim().length < 2) {
+                this.searchResults = [];
+                return;
+            }
+            
+            this.isSearching = true;
+            
+            // Simulate search API call (replace with actual API)
+            try {
+                // TODO: Replace with actual API endpoint
+                // const response = await window.xhr({
+                //     method: 'GET',
+                //     url: API_URL + 'search/',
+                //     data: { q: this.searchQuery },
+                //     timeout: 5000
+                // });
+                
+                // Mock search results for now
+                setTimeout(() => {
+                    this.searchResults = this.mockSearchResults(this.searchQuery);
+                    this.isSearching = false;
+                    
+                    // Re-initialize Lucide icons for results
+                    if (window.lucide) {
+                        requestAnimationFrame(() => window.lucide.createIcons());
+                    }
+                }, 300);
+                
+            } catch (error) {
+                console.error('Search error:', error);
+                this.isSearching = false;
+                this.searchResults = [];
+            }
+        },
+        
+        mockSearchResults(query) {
+            // Mock search results - replace with actual API response
+            const lowerQuery = query.toLowerCase();
+            const results = [];
+            
+            if (lowerQuery.includes('usdt') || lowerQuery.includes('mua') || lowerQuery.includes('bán')) {
+                results.push({
+                    id: 1,
+                    title: 'Mua USDT',
+                    description: 'Tìm kiếm người bán USDT',
+                    url: '/buy',
+                    icon: 'shopping-cart'
+                });
+                results.push({
+                    id: 2,
+                    title: 'Bán USDT',
+                    description: 'Tìm kiếm người mua USDT',
+                    url: '/sell',
+                    icon: 'dollar-sign'
+                });
+            }
+            
+            if (lowerQuery.includes('thị trường') || lowerQuery.includes('market')) {
+                results.push({
+                    id: 3,
+                    title: 'Thị trường',
+                    description: 'Xem thống kê thị trường',
+                    url: '/category',
+                    icon: 'trending-up'
+                });
+            }
+            
+            if (lowerQuery.includes('tin tức') || lowerQuery.includes('news')) {
+                results.push({
+                    id: 4,
+                    title: 'Tin tức',
+                    description: 'Đọc tin tức mới nhất',
+                    url: '/news',
+                    icon: 'newspaper'
+                });
+            }
+            
+            return results;
+        },
+        
+        handleSearch() {
+            if (this.searchQuery && this.searchQuery.trim().length >= 2) {
+                // Perform search and navigate to first result or search page
+                if (this.searchResults.length > 0) {
+                    window.location.href = this.searchResults[0].url;
+                } else {
+                    // Navigate to search results page
+                    window.location.href = `/search?q=${encodeURIComponent(this.searchQuery)}`;
+                }
+                this.closeSearchModal();
+            }
+        },
+        
+        // ===========================================
+        // LANGUAGE FUNCTIONALITY
+        // ===========================================
+        changeLanguage(lang) {
+            this.currentLanguage = lang;
+            localStorage.setItem('app_language', lang);
+            
+            // Update UI language
+            this.updateLanguageUI(lang);
+            
+            // Reload page to apply language changes
+            // window.location.reload();
+            
+            sendNotice(`Ngôn ngữ đã chuyển sang ${lang === 'vi' ? 'Tiếng Việt' : 'English'}`, 'info');
+        },
+        
+        updateLanguageUI(lang) {
+            // Update language selector text
+            const langButtons = document.querySelectorAll('[x-data*="open"]');
+            // This would typically update all text on the page
+            // For now, just update the selector
         }
     };
 }
