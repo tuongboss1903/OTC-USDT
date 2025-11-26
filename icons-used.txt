@@ -39,9 +39,12 @@ dollar-sign
 check-circle
 trending-down
 activity
+shopping-cart
+store
 gem
 message-circle
 zap
+headphones
 user-plus
 handshake
 message-square
@@ -54,6 +57,8 @@ calculator
 bar-chart-3
 book-open
 check
+crown
+sparkles
 calendar
 file-plus
 alert-triangle

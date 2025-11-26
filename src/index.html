@@ -18,6 +18,8 @@
 	</style>
 	<!-- all css -->
 	<link rel="stylesheet" href="assets/css/styles.css" />
+	<!-- Mobile Responsive CSS -->
+	<link rel="stylesheet" href="assets/css/mobile-responsive.css" />
 
 
 
@@ -69,6 +71,9 @@
 </head>
 
 <body class="min-h-screen">
+	<!-- Scroll Progress Indicator -->
+	<!-- include:./blocks/scroll-indicator.html -->
+	
 	<!-- header -->
 	<!-- include:./blocks/header.html -->
 
@@ -84,17 +89,14 @@
 
 			<div class="relative z-10">
 
-				<!-- Market Overview Section - Real-time Market Data -->
-				<!-- include:blocks/sections/market-overview.html -->
-
 				<!--  Exchange Logos Section - Partners -->
 				<!-- include:blocks/sections/exchange-logos.html -->
 
-				<!-- Seller Summary Section - Show Sellers -->
-				<!-- include:blocks/sections/seller-summary.html -->
+				<!-- Market Overview Section - Real-time Market Data -->
+				<!-- include:blocks/sections/market-overview.html -->
 
-				<!-- Buyer Summary Section - Show Buyers -->
-				<!-- include:blocks/sections/buyer-summary.html -->
+				<!-- P2P Summary Section - Buy/Sell Tabs -->
+				<!-- include:blocks/sections/p2p-summary.html -->
 
 				<!-- Benefits Section - Why Choose Us -->
 				<!-- include:blocks/sections/benefits.html -->
@@ -114,20 +116,17 @@
 				<!-- Quick Actions Section - Trading Tools -->
 				<!-- include:blocks/sections/quick-actions.html -->
 
-
-
 				<!-- Upgrade Packages Section - Monetization -->
 				<!-- include:blocks/sections/upgrade-packages.html -->
 
 				<!-- FAQ Section - Address Concerns -->
 				<!-- include:blocks/sections/faq.html -->
 
-				<!-- Blog Section - Content Marketing -->
-				<!-- include:blocks/sections/blog.html -->
-
-
 				<!-- Testimonials Section - Social Proof -->
 				<!-- include:blocks/sections/testimonials.html -->
+
+				<!-- Blog Section - Content Marketing -->
+				<!-- include:blocks/sections/blog.html -->
 
 				<!-- CTA Section - Final Call to Action -->
 				<!-- include:blocks/sections/cta.html -->
@@ -138,6 +137,14 @@
 
 	<!-- Footer -->
 	<!-- include:./blocks/footer.html -->
+
+	<!-- Scroll to Top Button -->
+	<!-- include:./blocks/to-top-button.html -->
+
+	<!-- Scroll to Top Script -->
+	<script src="assets/js/scroll-to-top.js" defer></script>
+	<!-- Scroll Indicator Script -->
+	<script src="assets/js/scroll-indicator.js" defer></script>
 </body>
 
 </html>

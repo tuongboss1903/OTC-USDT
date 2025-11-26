@@ -205,24 +205,12 @@
     }
     
     /* Consistent background pattern mixing */
-    section. {
-        background-blend-mode: overlay;
-    }
-    
     section.bg-wave-pattern {
         background-blend-mode: soft-light;
     }
     
     section.bg-grid-pattern {
         background-blend-mode: multiply;
-    }
-    
-    
-    . {
-        background-image: 
-            linear-gradient(rgba(255, 107, 53, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 107, 53, 0.03) 1px, transparent 1px);
-        background-size: 50px 50px;
     }
     
     .bg-grid-pattern {
@@ -420,6 +408,232 @@
         left: 0;
         width: 100% !important;
         height: 100% !important;
+    }
+    
+    /* ========================================================================
+       SPECIAL BACKGROUND FOR BLOG, TESTIMONIALS, CTA SECTIONS
+       ======================================================================== */
+    .sections-special-bg {
+        position: relative;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+    }
+    
+    .sections-special-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: 
+            /* Wave pattern */
+            radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+            /* Grid pattern */
+            linear-gradient(rgba(255, 107, 53, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 107, 53, 0.05) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+        opacity: 0.6;
+    }
+    
+    .sections-special-bg::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60%;
+        background: radial-gradient(ellipse 150% 100% at center bottom, 
+            rgba(255, 107, 53, 0.15) 0%,
+            rgba(255, 107, 53, 0.1) 30%,
+            rgba(255, 107, 53, 0.05) 60%,
+            transparent 100%);
+        pointer-events: none;
+    }
+    
+    /* ========================================================================
+       SCROLL TO TOP BUTTON - Smooth Animation
+       ======================================================================== */
+    .scroll-to-top-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        background: linear-gradient(135deg, #ff6b35 0%, #f59e0b 100%);
+        border: 2px solid rgba(255, 107, 53, 0.5);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px) scale(0.8);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+                    0 0 20px rgba(255, 107, 53, 0.2);
+        overflow: hidden;
+    }
+    
+    .scroll-to-top-btn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+    
+    .scroll-to-top-btn:hover {
+        background: linear-gradient(135deg, #ea580c 0%, #d97706 100%);
+        border-color: rgba(255, 107, 53, 0.8);
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4),
+                    0 0 30px rgba(255, 107, 53, 0.4);
+    }
+    
+    .scroll-to-top-btn:active {
+        transform: translateY(-2px) scale(1.02);
+    }
+    
+    .scroll-to-top-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        color: white;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .scroll-to-top-btn:hover .scroll-to-top-icon {
+        transform: translateY(-2px);
+    }
+    
+    .scroll-to-top-glow {
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: radial-gradient(circle, 
+            rgba(255, 107, 53, 0.4) 0%,
+            rgba(251, 191, 36, 0.3) 50%,
+            transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        animation: scrollToTopGlow 2s ease-in-out infinite;
+    }
+    
+    .scroll-to-top-btn:hover .scroll-to-top-glow {
+        opacity: 1;
+    }
+    
+    @keyframes scrollToTopGlow {
+        0%, 100% {
+            opacity: 0.5;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .scroll-to-top-btn {
+            width: 3rem;
+            height: 3rem;
+            bottom: 1.5rem;
+            right: 1.5rem;
+        }
+        
+        .scroll-to-top-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    }
+    
+    /* ========================================================================
+       UPGRADE PACKAGES - Layout Fixes
+       ======================================================================== */
+    .upgrade-packages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        align-items: start;
+    }
+    
+    @media (min-width: 768px) {
+        .upgrade-packages-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+    }
+    
+    .package-card-premium {
+        position: relative;
+        z-index: 1;
+    }
+    
+    @media (min-width: 768px) {
+        .package-card-premium {
+            transform: scale(1.05);
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .package-card-premium {
+            transform: scale(1.08);
+        }
+    }
+    
+    /* Ensure cards don't overflow */
+    .package-card-premium,
+    .package-card-basic,
+    .package-card-vip {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* ========================================================================
+       SCROLL INDICATOR - Progress Bar
+       ======================================================================== */
+    #scroll-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        z-index: 9999;
+        pointer-events: none;
+    }
+    
+    #scroll-progress {
+        height: 100%;
+        background: linear-gradient(90deg, 
+            #ff6b35 0%, 
+            #fbbf24 50%, 
+            #ff6b35 100%);
+        background-size: 200% 100%;
+        box-shadow: 0 0 10px rgba(255, 107, 53, 0.5),
+                    0 0 20px rgba(251, 191, 36, 0.3);
+        transition: width 0.1s ease-out;
+    }
+    
+    /* Shimmer animation for scroll progress */
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+    
+    .animate-shimmer {
+        animation: shimmer 2s infinite;
+    }
+    
+    /* Hide scroll indicator on mobile if needed */
+    @media (max-width: 768px) {
+        #scroll-indicator {
+            height: 2px;
+        }
     }
     
 }

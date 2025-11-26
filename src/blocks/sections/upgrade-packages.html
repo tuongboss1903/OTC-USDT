@@ -1,146 +1,328 @@
 <!-- Upgrade Packages Section -->
-<section class="py-12 lg:py-16">
+<section class="py-16 lg:py-24 relative overflow-x-hidden">
+  <!-- Background Effects -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/5 to-transparent"></div>
 
   <div class="container relative z-10">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold mb-4 text-gradient-neon">Nâng cấp tài khoản</h2>
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-4 text-gradient-neon py-2">Nâng cấp tài khoản</h2>
       <p class="text-gray-300 text-lg max-w-2xl mx-auto">
-        Chọn gói phù hợp để tận dụng tối đa các tính năng và ưu đãi độc quyền
+        Chọn gói phù hợp để tận dụng tối đa các tính năng và ưu đãi độc quyền. <br>
+        Nâng cấp ngay để trải nghiệm dịch vụ tốt nhất
       </p>
     </div>
-    
-    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto items-start px-2 md:px-0">
       <!-- Basic Package -->
-      <div class="glass rounded-xl p-6 glass-hover relative">
-        <div class="text-center mb-6">
-          <div class="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="user" class="w-8 h-8 text-white"></i>
+      <div class="glass rounded-2xl p-6 lg:p-8 relative overflow-hidden border border-white/10">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-100"></div>
+
+        <div class="relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-8">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl flex items-center justify-center mx-auto mb-5 border border-blue-500/30">
+              <i data-lucide="user" class="w-10 h-10 text-blue-400"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-white mb-3">Basic</h3>
+            <div class="mb-4">
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-5xl lg:text-6xl font-bold text-white">Miễn phí</span>
+              </div>
+              <p class="text-gray-400 text-sm mt-2">Gói cơ bản cho người mới</p>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Basic</h3>
-          <div class="mb-4">
-            <span class="text-4xl font-bold text-white">Miễn phí</span>
-          </div>
-          <p class="text-gray-400 text-sm">Gói cơ bản cho người mới bắt đầu</p>
+
+          <!-- Divider -->
+          <div class="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6"></div>
+
+          <!-- Features List -->
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-gray-300 text-sm font-medium block">Tạo tối đa 5 lệnh/ngày</span>
+                <span class="text-gray-500 text-xs mt-0.5 block">Đủ cho giao dịch nhỏ lẻ</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-gray-300 text-sm font-medium block">Hiển thị trong danh sách cơ bản</span>
+                <span class="text-gray-500 text-xs mt-0.5 block">Vị trí hiển thị tiêu chuẩn</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div class="w-6 h-6 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-gray-300 text-sm font-medium block">Hỗ trợ email</span>
+                <span class="text-gray-500 text-xs mt-0.5 block">Phản hồi trong 24h</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3 opacity-50">
+              <div class="w-6 h-6 rounded-lg bg-gray-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="x" class="w-4 h-4 text-gray-500"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-gray-500 text-sm line-through block">Ưu tiên hiển thị</span>
+                <span class="text-gray-600 text-xs mt-0.5 block">Chỉ có trong Premium</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3 opacity-50">
+              <div class="w-6 h-6 rounded-lg bg-gray-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i data-lucide="x" class="w-4 h-4 text-gray-500"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-gray-500 text-sm line-through block">Badge Premium</span>
+                <span class="text-gray-600 text-xs mt-0.5 block">Nâng cấp để có badge</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Button -->
+          <button class="w-full btn btn-ghost-modern py-3 text-base font-semibold">
+            <span class="flex items-center justify-center gap-2">
+              <i data-lucide="check-circle" class="w-5 h-5"></i>
+              Gói hiện tại
+            </span>
+          </button>
         </div>
-        
-        <ul class="space-y-3 mb-6">
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Tạo tối đa 5 lệnh/ngày</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Hiển thị trong danh sách cơ bản</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Hỗ trợ email</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="x" class="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-500 text-sm line-through">Ưu tiên hiển thị</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="x" class="w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-500 text-sm line-through">Badge Premium</span>
-          </li>
-        </ul>
-        
-        <button class="w-full btn btn-ghost-modern">
-          Gói hiện tại
-        </button>
       </div>
-      
+
       <!-- Premium Package -->
-      <div class="glass rounded-xl p-6 glass-hover relative border-2 border-orange-500/50">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-          <span class="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold px-4 py-1 rounded-full">
-            Phổ biến
+      <div
+        class="glass rounded-2xl p-6 lg:p-8 relative border-2 border-orange-500/50 shadow-xl shadow-orange-500/20 md:scale-[1.03] lg:scale-[1.05]">
+        <!-- Background Gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-amber-500/10 to-orange-500/10 opacity-100 rounded-2xl">
+        </div>
+
+        <!-- Glow Effect -->
+        <div
+          class="absolute -inset-1 bg-gradient-to-r from-orange-500/20 to-amber-500/20 rounded-2xl blur-xl opacity-50 -z-10">
+        </div>
+
+        <!-- Popular Badge -->
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-50">
+          <span
+            class="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-orange-500/50 border-2 border-white/20 whitespace-nowrap block">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="star" class="w-3.5 h-3.5 fill-white"></i>
+              Phổ biến nhất
+            </span>
           </span>
         </div>
-        
-        <div class="text-center mb-6">
-          <div class="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="award" class="w-8 h-8 text-orange-400"></i>
+
+        <!-- Spacer for badge -->
+        <div class="h-6"></div>
+
+        <div class="relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-8">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-orange-500/30 to-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-5 border-2 border-orange-500/50 shadow-lg shadow-orange-500/30">
+              <i data-lucide="award" class="w-10 h-10 text-orange-400"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-white mb-3">Premium</h3>
+            <div class="mb-4">
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-5xl lg:text-6xl font-bold text-white">299K</span>
+                <span class="text-gray-400 text-lg">/tháng</span>
+              </div>
+              <div class="mt-2">
+                <span
+                  class="inline-flex items-center gap-1 px-3 py-1 bg-green-500/20 rounded-full border border-green-500/30">
+                  <i data-lucide="trending-down" class="w-3 h-3 text-green-400"></i>
+                  <span class="text-green-400 text-xs font-semibold">Tiết kiệm 33% so với VIP</span>
+                </span>
+              </div>
+              <p class="text-gray-400 text-sm mt-3">Dành cho trader thường xuyên</p>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold text-white mb-2">Premium</h3>
-          <div class="mb-4">
-            <span class="text-4xl font-bold text-white">299K</span>
-            <span class="text-gray-400">/tháng</span>
-          </div>
-          <p class="text-gray-400 text-sm">Dành cho trader thường xuyên</p>
+
+          <!-- Divider -->
+          <div class="h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent mb-6"></div>
+
+          <!-- Features List -->
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Tạo không giới hạn lệnh</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Giao dịch không giới hạn mỗi ngày</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Ưu tiên hiển thị trong danh sách</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Luôn xuất hiện ở top 3</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Badge Premium nổi bật</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Tăng độ tin cậy với khách hàng</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Hỗ trợ ưu tiên 24/7</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Phản hồi trong vòng 1 giờ</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Thống kê chi tiết nâng cao</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Biểu đồ và báo cáo đầy đủ</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Button -->
+          <button class="w-full btn btn-neon text-white py-3 text-base font-semibold shadow-lg shadow-orange-500/30">
+            <span class="flex items-center justify-center gap-2">
+              <i data-lucide="arrow-up-circle" class="w-5 h-5"></i>
+              Nâng cấp ngay
+            </span>
+          </button>
         </div>
-        
-        <ul class="space-y-3 mb-6">
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Tạo không giới hạn lệnh</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Ưu tiên hiển thị trong danh sách</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Badge Premium nổi bật</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Hỗ trợ ưu tiên 24/7</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Thống kê chi tiết nâng cao</span>
-          </li>
-        </ul>
-        
-        <button class="w-full btn btn-neon text-white">
-          Nâng cấp ngay
-        </button>
       </div>
-      
+
       <!-- VIP Package -->
-      <div class="glass rounded-xl p-6 glass-hover relative">
-        <div class="text-center mb-6">
-          <div class="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="gem" class="w-8 h-8 text-amber-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-2">VIP</h3>
-          <div class="mb-4">
-            <span class="text-4xl font-bold text-white">999K</span>
-            <span class="text-gray-400">/tháng</span>
-          </div>
-          <p class="text-gray-400 text-sm">Gói cao cấp với đầy đủ tính năng</p>
+      <div class="glass rounded-2xl p-6 lg:p-8 relative border border-amber-500/30">
+        <!-- Background Gradient -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-yellow-500/10 to-amber-500/10 opacity-100 rounded-2xl">
         </div>
-        
-        <ul class="space-y-3 mb-6">
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Tất cả tính năng Premium</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Hiển thị đầu danh sách luôn</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Badge VIP độc quyền</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">Hỗ trợ VIP 1-1</span>
-          </li>
-          <li class="flex items-start space-x-3">
-            <i data-lucide="check" class="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5"></i>
-            <span class="text-gray-300 text-sm">API access & Webhook</span>
-          </li>
-        </ul>
-        
-        <button class="w-full btn btn-outline-modern border-amber-500/50 hover:border-amber-400/70">
-          Nâng cấp VIP
-        </button>
+
+        <!-- VIP Badge -->
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-50">
+          <span
+            class="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-amber-500/50 border-2 border-white/20 whitespace-nowrap block">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="crown" class="w-3.5 h-3.5 fill-white"></i>
+              VIP
+            </span>
+          </span>
+        </div>
+
+        <div class="relative z-10">
+          <!-- Header -->
+          <div class="text-center mb-8">
+            <div
+              class="w-20 h-20 bg-gradient-to-br from-amber-500/30 to-yellow-500/20 rounded-2xl flex items-center justify-center mx-auto mb-5 border-2 border-amber-500/50 shadow-lg shadow-amber-500/30">
+              <i data-lucide="gem" class="w-10 h-10 text-amber-400"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-white mb-3">VIP</h3>
+            <div class="mb-4">
+              <div class="flex items-baseline justify-center gap-2">
+                <span class="text-5xl lg:text-6xl font-bold text-white">999K</span>
+                <span class="text-gray-400 text-lg">/tháng</span>
+              </div>
+              <div class="mt-2">
+                <span
+                  class="inline-flex items-center gap-1 px-3 py-1 bg-amber-500/20 rounded-full border border-amber-500/30">
+                  <i data-lucide="sparkles" class="w-3 h-3 text-amber-400"></i>
+                  <span class="text-amber-400 text-xs font-semibold">Gói cao cấp nhất</span>
+                </span>
+              </div>
+              <p class="text-gray-400 text-sm mt-3">Gói cao cấp với đầy đủ tính năng</p>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent mb-6"></div>
+
+          <!-- Features List -->
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Tất cả tính năng Premium</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Bao gồm mọi tính năng Premium</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Hiển thị đầu danh sách luôn</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Vị trí số 1 không đổi</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Badge VIP độc quyền</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Badge vàng độc quyền</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">Hỗ trợ VIP 1-1</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Manager riêng, phản hồi tức thì</span>
+              </div>
+            </li>
+            <li class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 rounded-lg bg-green-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 border border-green-500/50">
+                <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <div class="flex-1">
+                <span class="text-white text-sm font-semibold block">API access & Webhook</span>
+                <span class="text-gray-400 text-xs mt-0.5 block">Tích hợp hệ thống tự động</span>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Button -->
+          <button
+            class="w-full btn btn-outline-modern border-2 border-amber-500/50 hover:border-amber-400/70 py-3 text-base font-semibold">
+            <span class="flex items-center justify-center gap-2">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+              Nâng cấp VIP
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
-

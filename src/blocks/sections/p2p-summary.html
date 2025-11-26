@@ -1,0 +1,561 @@
+<!-- P2P Summary Section with Buy-Sell Tabs -->
+<style>
+  /* Custom Neon Tabs Styling */
+  .tabs .tabs-menus {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .tabs .tab-menu {
+    position: relative;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.7);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Buy Tab - Green Colors Only */
+  .tabs .tab-menu[data-tab="buy"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(22, 163, 74, 0.15) 100%);
+    border-radius: calc(var(--radius) - 2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .tabs .tab-menu[data-tab="buy"]:hover::before {
+    opacity: 1;
+  }
+  
+  .tabs .tab-menu[data-tab="buy"].active {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(22, 163, 74, 0.3) 100%);
+    color: white;
+    box-shadow: 
+      0 0 20px rgba(34, 197, 94, 0.3),
+      inset 0 0 20px rgba(22, 163, 74, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(34, 197, 94, 0.4);
+  }
+  
+  .tabs .tab-menu[data-tab="buy"] i {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.2));
+  }
+  
+  .tabs .tab-menu[data-tab="buy"]:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.4));
+  }
+  
+  .tabs .tab-menu[data-tab="buy"].active i {
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
+    transform: scale(1.05);
+  }
+  
+  /* Sell Tab - Red Colors */
+  .tabs .tab-menu[data-tab="sell"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.15) 100%);
+    border-radius: calc(var(--radius) - 2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .tabs .tab-menu[data-tab="sell"]:hover::before {
+    opacity: 1;
+  }
+  
+  .tabs .tab-menu[data-tab="sell"].active {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, rgba(220, 38, 38, 0.3) 100%);
+    color: white;
+    box-shadow: 
+      0 0 20px rgba(239, 68, 68, 0.3),
+      inset 0 0 20px rgba(220, 38, 38, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+  }
+  
+  .tabs .tab-menu[data-tab="sell"] i {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.2));
+  }
+  
+  .tabs .tab-menu[data-tab="sell"]:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.4));
+  }
+  
+  .tabs .tab-menu[data-tab="sell"].active i {
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+    transform: scale(1.05);
+  }
+  
+  /* Common hover effect */
+  .tabs .tab-menu:hover {
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+  }
+  
+  /* Buy Button Styles - Green */
+  .btn-buy {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(22, 163, 74, 0.9) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-buy:hover {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 1) 0%, rgba(22, 163, 74, 1) 100%);
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  /* Sell Button Styles - Red */
+  .btn-sell {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.9) 0%, rgba(220, 38, 38, 0.9) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-sell:hover {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 1) 0%, rgba(220, 38, 38, 1) 100%);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  /* Price Section Styling */
+  [data-tab-content="buy"] .border-t {
+    border-top-color: rgba(34, 197, 94, 0.2) !important;
+  }
+  
+  [data-tab-content="sell"] .border-t {
+    border-top-color: rgba(239, 68, 68, 0.2) !important;
+  }
+  
+  /* Price Value Styling */
+  .text-green-400 {
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+  }
+  
+  .text-red-400 {
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+  }
+  
+  /* Card Hover Effects with Color Accent */
+  [data-tab-content="buy"] .glass-hover:hover {
+    border-color: rgba(34, 197, 94, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(34, 197, 94, 0.1);
+  }
+  
+  [data-tab-content="sell"] .glass-hover:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(239, 68, 68, 0.1);
+  }
+</style>
+<section class="py-12 lg:py-16 relative">
+  <div class="absolute inset-0 bg-wave-pattern opacity-10"></div>
+  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+  <div class="container relative z-10">
+    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 gap-4">
+      <div class="text-center lg:text-left w-full">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-3 text-gradient-neon">Giao dịch P2P</h2>
+        <p class="text-white text-sm">Mua và bán USDT với các trader đã được xác minh</p>
+      </div>
+      <div class="hidden lg:flex gap-3">
+        <a href="/buy" class="btn btn-buy text-white">
+          Xem tất cả người mua
+          <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+        </a>
+        <a href="/sell" class="btn btn-sell text-white">
+          Xem tất cả người bán
+          <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Tabs Container -->
+    <div class="tabs">
+      <div class="tabs-menus mb-6">
+        <button class="tab-menu active" data-tab="buy">
+          <i data-lucide="shopping-cart" class="w-5 h-5 mr-2"></i>
+          <span class="font-semibold">Mua USDT</span>
+        </button>
+        <button class="tab-menu" data-tab="sell">
+          <i data-lucide="store" class="w-5 h-5 mr-2"></i>
+          <span class="font-semibold">Bán USDT</span>
+        </button>
+      </div>
+      
+      <!-- Buy Tab Content -->
+      <div class="tab-content active" data-tab-content="buy">
+        <!-- Buyer Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Buyer Card 1 -->
+          <div class="glass rounded-xl p-6 glass-hover group">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <img src="https://i.pravatar.cc/150?img=5" alt="Buyer" class="w-12 h-12 rounded-full border-2 border-white/20">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white">ProBuyer001</span>
+                    <i data-lucide="award" class="w-5 h-5 text-green-400 fill-green-400"></i>
+                    <i data-lucide="gem" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <i data-lucide="circle" class="w-2 h-2 text-green-400 fill-green-400"></i>
+                    <span class="text-xs text-green-400">Đang online</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tổng giao dịch:</span>
+                <span class="text-white font-bold">$1.8M</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Số giao dịch:</span>
+                <span class="text-white font-bold">5,234</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tỷ lệ hoàn thành:</span>
+                <span class="text-green-400 font-bold">98.0%</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Đánh giá:</span>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                  <span class="text-white font-bold">4.9</span>
+                  <span class="text-gray-300 text-xs">(4K)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="text-sm text-gray-300">Giá mua:</div>
+                <div class="text-xs text-gray-400 text-right">Giới hạn: 150K - 3M VND</div>
+              </div>
+              <div class="text-2xl font-bold text-green-400 mb-2">25,450 VND</div>
+            </div>
+            
+            <button class="w-full btn btn-buy text-white">
+              Liên hệ người mua
+            </button>
+          </div>
+          
+          <!-- Buyer Card 2 -->
+          <div class="glass rounded-xl p-6 glass-hover group">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <img src="https://i.pravatar.cc/150?img=8" alt="Buyer" class="w-12 h-12 rounded-full border-2 border-white/20">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white">CryptoBuyer</span>
+                    <i data-lucide="award" class="w-5 h-5 text-green-400 fill-green-400"></i>
+                  </div>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <i data-lucide="circle" class="w-2 h-2 text-green-400 fill-green-400"></i>
+                    <span class="text-xs text-green-400">Đang online</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tổng giao dịch:</span>
+                <span class="text-white font-bold">$1.3M</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Số giao dịch:</span>
+                <span class="text-white font-bold">4,521</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tỷ lệ hoàn thành:</span>
+                <span class="text-green-400 font-bold">97.8%</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Đánh giá:</span>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                  <span class="text-white font-bold">4.7</span>
+                  <span class="text-gray-300 text-xs">(5K)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="text-sm text-gray-300">Giá mua:</div>
+                <div class="text-xs text-gray-400 text-right">Giới hạn: 50K - 2M VND</div>
+              </div>
+              <div class="text-2xl font-bold text-green-400 mb-2">25,440 VND</div>
+            </div>
+            
+            <button class="w-full btn btn-buy text-white">
+              Liên hệ người mua
+            </button>
+          </div>
+          
+          <!-- Buyer Card 3 -->
+          <div class="glass rounded-xl p-6 glass-hover group">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <img src="https://i.pravatar.cc/150?img=15" alt="Buyer" class="w-12 h-12 rounded-full border-2 border-white/20">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white">WhaleBuyer</span>
+                    <i data-lucide="award" class="w-5 h-5 text-green-400 fill-green-400"></i>
+                    <i data-lucide="gem" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <i data-lucide="circle" class="w-2 h-2 text-green-400 fill-green-400"></i>
+                    <span class="text-xs text-green-400">Đang online</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tổng giao dịch:</span>
+                <span class="text-white font-bold">$1.5M</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Số giao dịch:</span>
+                <span class="text-white font-bold">13,446</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tỷ lệ hoàn thành:</span>
+                <span class="text-green-400 font-bold">95.8%</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Đánh giá:</span>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                  <span class="text-white font-bold">5.0</span>
+                  <span class="text-gray-300 text-xs">(8K)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="text-sm text-gray-300">Giá mua:</div>
+                <div class="text-xs text-gray-400 text-right">Giới hạn: 500K - 10M VND</div>
+              </div>
+              <div class="text-2xl font-bold text-green-400 mb-2">25,460 VND</div>
+            </div>
+            
+            <button class="w-full btn btn-buy text-white">
+              Liên hệ người mua
+            </button>
+          </div>
+        </div>
+        
+        <div class="text-center lg:hidden">
+          <a href="/buy" class="btn btn-buy text-white">
+            Xem tất cả người mua
+            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Sell Tab Content -->
+      <div class="tab-content" data-tab-content="sell">
+        <!-- Seller Cards Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Seller Card 1 -->
+          <div class="glass rounded-xl p-6 glass-hover group">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <img src="https://i.pravatar.cc/150?img=12" alt="Seller" class="w-12 h-12 rounded-full border-2 border-white/20">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white">CryptoKing</span>
+                    <i data-lucide="award" class="w-5 h-5 text-green-400 fill-green-400"></i>
+                    <i data-lucide="gem" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <i data-lucide="circle" class="w-2 h-2 text-green-400 fill-green-400"></i>
+                    <span class="text-xs text-green-400">Đang online</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Ký quỹ:</span>
+                <span class="text-white font-bold">$50,000</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Giao dịch:</span>
+                <span class="text-white font-bold">15,234</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tỷ lệ thành công:</span>
+                <span class="text-green-400 font-bold">99.9%</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Đánh giá:</span>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                  <span class="text-white font-bold">5.0</span>
+                  <span class="text-gray-300 text-xs">(1,234)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="text-sm text-gray-300">Giá bán:</div>
+                <div class="text-xs text-gray-400 text-right">Giới hạn: 100K - 1.2M VND</div>
+              </div>
+              <div class="text-2xl font-bold text-red-400 mb-2">25,480 VND</div>
+            </div>
+            
+            <button class="w-full btn btn-sell text-white">
+              Liên hệ người bán
+            </button>
+          </div>
+          
+          <!-- Seller Card 2 -->
+          <div class="glass rounded-xl p-6 glass-hover group">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <img src="https://i.pravatar.cc/150?img=47" alt="Seller" class="w-12 h-12 rounded-full border-2 border-white/20">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white">WhaleQueen</span>
+                    <i data-lucide="award" class="w-5 h-5 text-green-400 fill-green-400"></i>
+                  </div>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <i data-lucide="circle" class="w-2 h-2 text-green-400 fill-green-400"></i>
+                    <span class="text-xs text-green-400">Đang online</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Ký quỹ:</span>
+                <span class="text-white font-bold">$30,000</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Giao dịch:</span>
+                <span class="text-white font-bold">12,856</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tỷ lệ thành công:</span>
+                <span class="text-green-400 font-bold">99.8%</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Đánh giá:</span>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                  <span class="text-white font-bold">4.9</span>
+                  <span class="text-gray-300 text-xs">(856)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="text-sm text-gray-300">Giá bán:</div>
+                <div class="text-xs text-gray-400 text-right">Giới hạn: 50K - 2M VND</div>
+              </div>
+              <div class="text-2xl font-bold text-red-400 mb-2">25,475 VND</div>
+            </div>
+            
+            <button class="w-full btn btn-sell text-white">
+              Liên hệ người bán
+            </button>
+          </div>
+          
+          <!-- Seller Card 3 -->
+          <div class="glass rounded-xl p-6 glass-hover group">
+            <div class="flex items-start justify-between mb-4">
+              <div class="flex items-center space-x-3">
+                <img src="https://i.pravatar.cc/150?img=33" alt="Seller" class="w-12 h-12 rounded-full border-2 border-white/20">
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-white">MegaTrader</span>
+                    <i data-lucide="award" class="w-5 h-5 text-green-400 fill-green-400"></i>
+                    <i data-lucide="gem" class="w-4 h-4 text-white"></i>
+                  </div>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <i data-lucide="circle" class="w-2 h-2 text-gray-400 fill-gray-400"></i>
+                    <span class="text-xs text-gray-400">Offline</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="space-y-3 mb-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Ký quỹ:</span>
+                <span class="text-white font-bold">$25,000</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Giao dịch:</span>
+                <span class="text-white font-bold">11,245</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Tỷ lệ thành công:</span>
+                <span class="text-green-400 font-bold">99.7%</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-300">Đánh giá:</span>
+                <div class="flex items-center space-x-1">
+                  <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-yellow-400"></i>
+                  <span class="text-white font-bold">4.8</span>
+                  <span class="text-gray-300 text-xs">(723)</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-4 mb-4">
+              <div class="flex items-center justify-between gap-3 mb-2">
+                <div class="text-sm text-gray-300">Giá bán:</div>
+                <div class="text-xs text-gray-400 text-right">Giới hạn: 200K - 5M VND</div>
+              </div>
+              <div class="text-2xl font-bold text-red-400 mb-2">25,470 VND</div>
+            </div>
+            
+            <button class="w-full btn btn-sell text-white">
+              Liên hệ người bán
+            </button>
+          </div>
+        </div>
+        
+        <div class="text-center lg:hidden">
+          <a href="/sell" class="btn btn-sell text-white">
+            Xem tất cả người bán
+            <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

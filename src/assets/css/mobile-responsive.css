@@ -1,0 +1,1285 @@
+/* ========================================================================
+   MOBILE RESPONSIVE CSS - Fix layout compression and text sizes
+   ======================================================================== */
+
+/* ========================================================================
+   BASE MOBILE STYLES (< 640px)
+   ======================================================================== */
+
+@media (max-width: 639px) {
+    /* ========================================================================
+           HEADER - Fix layout breaking on mobile
+           ======================================================================== */
+
+    /* Header Container */
+
+    header .container {
+        padding-left: 0.75rem !important;
+        /* px-3 */
+        padding-right: 0.75rem !important;
+    }
+
+    /* Header Height */
+
+    header .flex-between {
+        height: 3.5rem !important;
+        /* h-14 */
+        min-height: 3.5rem !important;
+    }
+
+    /* Header Actions - Reduce spacing */
+
+    header .flex.items-center.space-x-1,
+    header .flex.items-center.space-x-2,
+    header .flex.items-center.space-x-4 {
+        gap: 0.25rem !important;
+        /* space-x-1 */
+    }
+
+    /* Header Buttons - Smaller */
+
+    header button {
+        padding: 0.375rem !important;
+        /* p-1.5 */
+    }
+
+    header .btn {
+        padding: 0.375rem 0.5rem !important;
+        font-size: 0.75rem !important;
+        /* text-xs */
+    }
+
+    /* Header Icons - Smaller */
+
+    header i[data-lucide] {
+        width: 1rem !important;
+        /* w-4 */
+        height: 1rem !important;
+        /* h-4 */
+    }
+
+    /* Logo - Ensure it doesn't break */
+
+    header img {
+        max-height: 2rem !important;
+        width: auto !important;
+    }
+
+    /* Logo SVG - Smaller on mobile */
+
+    header svg {
+        width: 1.25rem !important;
+        /* w-5 */
+        height: 1.25rem !important;
+        /* h-5 */
+    }
+
+    /* Logo Text - Smaller */
+
+    header .text-base.sm\:text-lg {
+        font-size: 0.875rem !important;
+        /* text-sm */
+        line-height: 1.2 !important;
+    }
+
+    /* Logo Container - Reduce spacing */
+
+    header .flex.items-center.space-x-2 {
+        gap: 0.375rem !important;
+        /* space-x-1.5 */
+    }
+
+    /* Hide language selector on mobile if needed */
+
+    header .hidden.md\:flex {
+        display: none !important;
+    }
+
+    /* Login Buttons - Hide on very small screens, show icon only */
+
+    header #loginButtons {
+        display: none !important;
+    }
+
+    /* Ensure header doesn't overflow */
+
+    header .container {
+        overflow: hidden !important;
+    }
+
+    header .flex-between {
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+    }
+
+    /* ========================================================================
+           TEXT SIZES - Reduce oversized text on mobile
+           ======================================================================== */
+
+    /* Hero Section Text */
+
+    .hero-section h1 {
+        font-size: 2rem !important;
+        /* text-3xl instead of text-5xl/6xl */
+        line-height: 1.2 !important;
+    }
+
+    .hero-section .text-gradient-neon {
+        font-size: 1.8rem !important;
+        /* Smaller gradient text */
+        line-height: 1.3 !important;
+    }
+
+    .hero-section p {
+        font-size: 0.875rem !important;
+        /* text-sm */
+        line-height: 1.5 !important;
+    }
+
+    /* Section Titles */
+
+    section h2,
+    .section-title {
+        font-size: 1.5rem !important;
+        /* text-2xl instead of text-3xl/4xl */
+        line-height: 1.3 !important;
+    }
+
+    /* Card Titles */
+
+    .card-title {
+        font-size: 1.125rem !important;
+        /* text-lg */
+        line-height: 1.4 !important;
+    }
+
+    /* Price Text in Cards */
+
+    .glass .text-2xl,
+    .glass .text-3xl,
+    .glass .text-4xl {
+        font-size: 1.25rem !important;
+        /* text-xl */
+        line-height: 1.3 !important;
+    }
+
+    /* Market Stats */
+
+    .glass .text-2xl,
+    .glass .text-3xl {
+        font-size: 1.5rem !important;
+        /* text-2xl */
+        line-height: 1.2 !important;
+    }
+
+    /* ========================================================================
+           SPACING & PADDING - Reduce excessive spacing on mobile
+           ======================================================================== */
+
+    /* Section Padding */
+
+    section {
+        padding-top: 2rem !important;
+        /* py-8 instead of py-12/16/24 */
+        padding-bottom: 2rem !important;
+    }
+
+    .section-lg {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    /* Card Padding */
+
+    .glass,
+    .glass-strong {
+        padding: 1rem !important;
+        /* p-4 instead of p-6/8 */
+    }
+
+    .glass .p-6 {
+        padding: 1rem !important;
+    }
+
+    .glass .p-8 {
+        padding: 1.25rem !important;
+    }
+
+    /* Container Padding */
+
+    .container {
+        padding-left: 1rem !important;
+        /* px-4 */
+        padding-right: 1rem !important;
+    }
+
+    /* ========================================================================
+           TABLE RESPONSIVE - Optimize table for mobile scrolling
+           ======================================================================== */
+
+    /* Trading Table Container - Make scrollable with better UX */
+
+    .glass-strong.rounded-xl.overflow-x-auto {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    }
+
+    .glass-strong.rounded-xl.overflow-x-auto::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .glass-strong.rounded-xl.overflow-x-auto::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    .glass-strong.rounded-xl.overflow-x-auto::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+    }
+
+    /* Table wrapper - keep min-width for horizontal scroll */
+
+    .glass-strong table {
+        min-width: 600px !important;
+        /* Reduced from 800px */
+    }
+
+    /* Table cells - reduce padding significantly */
+
+    table th,
+    table td {
+        padding: 0.5rem 0.375rem !important;
+        /* py-2 px-1.5 */
+        font-size: 0.75rem !important;
+        /* text-xs */
+        white-space: nowrap;
+    }
+
+    /* Table headers - smaller text */
+
+    table th {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+    }
+
+    /* Table user info - compact */
+
+    table .flex.items-center.space-x-3 {
+        gap: 0.5rem !important;
+        /* space-x-2 */
+    }
+
+    table .w-10.h-10 {
+        width: 2rem !important;
+        /* w-8 */
+        height: 2rem !important;
+        /* h-8 */
+    }
+
+    /* Table buttons - smaller */
+
+    table .btn,
+    table .btn-sm {
+        padding: 0.375rem 0.5rem !important;
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+        height: auto !important;
+    }
+
+    /* Table icons - smaller */
+
+    table i[data-lucide] {
+        width: 1rem !important;
+        /* w-4 */
+        height: 1rem !important;
+        /* h-4 */
+    }
+
+    /* ========================================================================
+           BUYER/SELLER CARDS - Optimize for mobile
+           ======================================================================== */
+
+    /* Card Grid - Single column on mobile */
+
+    .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        /* gap-4 */
+    }
+
+    /* Card Content - Reduce spacing */
+
+    .glass.rounded-xl.p-6 {
+        padding: 1rem !important;
+    }
+
+    /* Card Stats - Smaller text */
+
+    .glass .text-sm {
+        font-size: 0.75rem !important;
+        /* text-xs */
+        line-height: 1.4 !important;
+    }
+
+    /* Card Price - Smaller */
+
+    .glass .text-2xl.font-bold,
+    .glass .text-2xl {
+        font-size: 1.25rem !important;
+        /* text-xl */
+        line-height: 1.3 !important;
+    }
+
+    /* Card User Info - Compact */
+
+    .glass .w-12.h-12 {
+        width: 2.5rem !important;
+        /* w-10 */
+        height: 2.5rem !important;
+        /* h-10 */
+    }
+
+    /* Card Username - Smaller */
+
+    .glass .font-bold.text-white {
+        font-size: 0.875rem !important;
+        /* text-sm */
+    }
+
+    /* Card Status - Smaller */
+
+    .glass .text-xs {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+    }
+
+    /* Card Icons - Smaller */
+
+    .glass i[data-lucide] {
+        width: 1rem !important;
+        /* w-4 */
+        height: 1rem !important;
+        /* h-4 */
+    }
+
+    .glass .w-5.h-5 {
+        width: 1rem !important;
+        height: 1rem !important;
+    }
+
+    .glass .w-4.h-4 {
+        width: 0.875rem !important;
+        height: 0.875rem !important;
+    }
+
+    /* ========================================================================
+           FILTERS & TABS - Stack vertically on mobile
+           ======================================================================== */
+
+    /* Filter Container */
+
+    .glass.rounded-xl.p-4 .flex.flex-wrap {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        /* gap-3 */
+    }
+
+    .glass.rounded-xl.p-4 .flex.flex-wrap>* {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    /* Tabs - Smaller on mobile */
+
+    .tabs .tabs-menus {
+        padding: 0.25rem !important;
+        /* p-1 */
+        gap: 0.25rem !important;
+    }
+
+    .tabs .tab-menu {
+        font-size: 0.75rem !important;
+        /* text-xs */
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    /* ========================================================================
+           BUTTONS - Smaller on mobile
+           ======================================================================== */
+
+    .btn-lg {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.875rem !important;
+        /* text-sm */
+        height: auto !important;
+    }
+
+    .btn {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.75rem !important;
+        /* text-xs */
+    }
+
+    /* ========================================================================
+           HERO SECTION - Mobile optimizations
+           ======================================================================== */
+
+    .hero-section {
+        min-height: auto !important;
+        padding: 0 !important;
+    }
+
+    .hero-section .container {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    /* Hero Grid Layout */
+
+    .hero-section .grid.lg\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    /* Hero Stats Grid - Keep 3 columns horizontal on mobile */
+
+    .hero-section .grid.grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.5rem !important;
+        /* gap-2 */
+    }
+
+    /* Statistics Cards - Balanced padding for mobile */
+
+    .hero-section .grid.grid-cols-3 .glass.rounded-xl.p-5 {
+        padding: 0.75rem 0.5rem !important;
+        /* py-3 px-2 */
+    }
+
+    /* Statistics Icon Container - Balanced size */
+
+    .hero-section .grid.grid-cols-3 .w-14.h-14 {
+        width: 2.75rem !important;
+        /* w-11 - balanced */
+        height: 2.75rem !important;
+        /* h-11 - balanced */
+        margin-bottom: 0.5rem !important;
+        /* mb-2 */
+    }
+
+    /* Statistics Icons inside container - Balanced size */
+
+    .hero-section .grid.grid-cols-3 .w-7.h-7,
+    .hero-section .grid.grid-cols-3 svg.w-7.h-7 {
+        width: 1.5rem !important;
+        /* w-6 - balanced */
+        height: 1.5rem !important;
+        /* h-6 - balanced */
+    }
+
+    /* Statistics Number Text - Balanced size */
+
+    .hero-section .grid.grid-cols-3 .text-3xl.lg\:text-4xl {
+        font-size: 0.875rem !important;
+        /* text-sm - balanced */
+        line-height: 1.3 !important;
+        margin-bottom: 0.25rem !important;
+        /* mb-1 */
+    }
+
+    /* Statistics Labels - Balanced size */
+
+    .hero-section .grid.grid-cols-3 .text-xs.text-gray-400 {
+        font-size: 0.625rem !important;
+        /* text-[10px] - balanced */
+        line-height: 1.3 !important;
+        margin-bottom: 0.25rem !important;
+        /* mb-1 */
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* Statistics Trend Text - Balanced size */
+
+    .hero-section .grid.grid-cols-3 .text-xs.text-green-400 {
+        font-size: 0.625rem !important;
+        /* text-[10px] - balanced */
+        line-height: 1.3 !important;
+    }
+
+    /* Statistics Icons in trend text - Balanced size */
+
+    .hero-section .grid.grid-cols-3 .w-3.h-3,
+    .hero-section .grid.grid-cols-3 svg.w-3.h-3 {
+        width: 0.75rem !important;
+        /* w-3 - balanced */
+        height: 0.75rem !important;
+        /* h-3 - balanced */
+    }
+
+    /* Statistics Container - Ensure proper spacing */
+
+    .hero-section .grid.grid-cols-3 .relative.z-10 {
+        width: 100% !important;
+    }
+
+    .hero-section .glass.rounded-xl.p-5 {
+        padding: 1rem !important;
+    }
+
+    .hero-section .text-3xl,
+    .hero-section .text-4xl {
+        font-size: 1.5rem !important;
+        /* text-2xl */
+        line-height: 1.2 !important;
+    }
+
+    /* Hero Trading Widget */
+
+    .hero-section .glass-strong.rounded-2xl {
+        padding: 1rem !important;
+    }
+
+    /* Header with Trading Pairs - Keep horizontal flex, balanced layout */
+
+    .hero-section .flex.items-center.justify-between.mb-6 {
+        flex-direction: row !important;
+        /* Keep horizontal */
+        align-items: center !important;
+        gap: 0.5rem !important;
+        /* gap-2 */
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-section .flex.items-center.justify-between.mb-6>div:first-child {
+        flex: 1 !important;
+        /* Take available space */
+        min-width: 0 !important;
+        /* Allow shrinking */
+    }
+
+    .hero-section .flex.items-center.justify-between.mb-6>div:last-child {
+        flex-shrink: 0 !important;
+        /* Don't shrink */
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.375rem !important;
+        /* gap-1.5 */
+    }
+
+    /* Trading Pairs Header Text - Balanced size */
+
+    .hero-section .flex.items-center.justify-between.mb-6 h3.text-lg {
+        font-size: 0.875rem !important;
+        /* text-sm */
+        line-height: 1.3 !important;
+        margin-bottom: 0.125rem !important;
+        /* mb-0.5 */
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .hero-section .flex.items-center.justify-between.mb-6 .text-xs.text-gray-400 {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* Live Indicator - Balanced size */
+
+    .hero-section .flex.items-center.justify-between.mb-6 .px-2.py-1 {
+        padding: 0.25rem 0.5rem !important;
+        /* py-1 px-2 */
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.25rem !important;
+        /* gap-1 */
+    }
+
+    .hero-section .flex.items-center.justify-between.mb-6 .text-xs.text-green-400 {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+    }
+
+    /* Live Indicator Icon - Balanced size */
+
+    .hero-section .flex.items-center.justify-between.mb-6 .w-2.h-2,
+    .hero-section .flex.items-center.justify-between.mb-6 svg.w-2.h-2 {
+        width: 0.5rem !important;
+        /* w-2 */
+        height: 0.5rem !important;
+        /* h-2 */
+    }
+
+    /* Refresh Button - Balanced size */
+
+    .hero-section .flex.items-center.justify-between.mb-6 button.p-2 {
+        padding: 0.375rem !important;
+        /* p-1.5 */
+        flex-shrink: 0 !important;
+    }
+
+    .hero-section .flex.items-center.justify-between.mb-6 button.p-2 .w-4.h-4,
+    .hero-section .flex.items-center.justify-between.mb-6 button.p-2 svg.w-4.h-4 {
+        width: 1rem !important;
+        /* w-4 */
+        height: 1rem !important;
+        /* h-4 */
+    }
+
+    /* Hero Trading Pairs - Keep horizontal (2 columns) */
+
+    .hero-section .grid.grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+        /* gap-2 */
+    }
+
+    /* Trading Pairs Price Boxes - Compact layout */
+
+    .hero-section .glass.rounded-xl.p-5 {
+        padding: 0.75rem 0.5rem !important;
+        /* py-3 px-2 */
+    }
+
+    /* Trading Pairs Labels */
+
+    .hero-section .text-xs.text-gray-400.font-medium {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+        margin-bottom: 0.375rem !important;
+    }
+
+    /* Trading Pairs Price - Appropriate size */
+
+    .hero-section .text-3xl.lg\:text-4xl.font-bold {
+        font-size: 1.125rem !important;
+        /* text-lg */
+        line-height: 1.2 !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    /* Trading Pairs Currency Text */
+
+    .hero-section .text-xs.text-gray-400,
+    .hero-section .text-xs.text-gray-500 {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+    }
+
+    /* Trading Pairs Icons */
+
+    .hero-section .w-4.h-4 {
+        width: 0.875rem !important;
+        height: 0.875rem !important;
+    }
+
+    /* Trading Pairs CTA Text */
+
+    .hero-section .mt-2.text-xs {
+        font-size: 0.625rem !important;
+        margin-top: 0.375rem !important;
+    }
+
+    /* Chart Stats - Balanced text sizes and padding */
+
+    .hero-section .flex.items-center.justify-between.mt-4.pt-4 {
+        margin-top: 0.75rem !important;
+        /* mt-3 instead of mt-4 */
+        padding-top: 0.75rem !important;
+        /* pt-3 instead of pt-4 */
+        gap: 0.25rem !important;
+        /* gap-1 */
+    }
+
+    /* Chart Stats Items - Balanced padding */
+
+    .hero-section .flex.items-center.justify-between.mt-4.pt-4 .text-center.flex-1 {
+        padding: 0.25rem 0.125rem !important;
+        /* py-1 px-0.5 */
+        min-width: 0 !important;
+        /* Allow shrinking */
+    }
+
+    /* Chart Stats Labels - Balanced size */
+
+    .hero-section .flex.items-center.justify-between.mt-4.pt-4 .text-xs.text-gray-400 {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+        line-height: 1.3 !important;
+        margin-bottom: 0.125rem !important;
+        /* mb-0.5 instead of mb-1 */
+    }
+
+    /* Chart Stats Values - Balanced size */
+
+    .hero-section .flex.items-center.justify-between.mt-4.pt-4 .text-sm.font-bold {
+        font-size: 0.75rem !important;
+        /* text-xs instead of text-sm */
+        line-height: 1.3 !important;
+    }
+
+    /* Chart Stats Divider - Smaller */
+
+    .hero-section .flex.items-center.justify-between.mt-4.pt-4 .w-px.h-8 {
+        width: 1px !important;
+        height: 1.5rem !important;
+        /* h-6 instead of h-8 */
+    }
+
+    /* Hero CTA Buttons Container - Keep horizontal flex */
+
+    .hero-section .flex.flex-col.sm\:flex-row {
+        flex-direction: row !important;
+        /* Keep horizontal on mobile */
+        gap: 0.5rem !important;
+        /* gap-2 instead of gap-4 */
+        justify-content: center !important;
+        margin-bottom: 1.5rem !important;
+        /* mb-6 instead of mb-10 */
+    }
+
+    /* Hero CTA Buttons - Balanced width */
+
+    .hero-section .flex.flex-col.sm\:flex-row .btn-lg {
+        flex: 1 !important;
+        /* Equal width buttons */
+        min-width: 0 !important;
+        /* Allow shrinking */
+        padding: 0.625rem 0.75rem !important;
+        /* py-2.5 px-3 */
+        font-size: 0.75rem !important;
+        /* text-xs */
+        height: auto !important;
+        min-height: 2.25rem !important;
+        /* h-9 */
+    }
+
+    /* Hero CTA Button Icons - Balanced size */
+
+    .hero-section .flex.flex-col.sm\:flex-row .btn-lg .w-5.h-5,
+    .hero-section .flex.flex-col.sm\:flex-row .btn-lg svg.w-5.h-5,
+    .hero-section .flex.flex-col.sm\:flex-row .btn-lg i[data-lucide] {
+        width: 1rem !important;
+        /* w-4 */
+        height: 1rem !important;
+        /* h-4 */
+    }
+
+    /* Hero CTA Button Text - Balanced size */
+
+    .hero-section .flex.flex-col.sm\:flex-row .btn-lg span {
+        font-size: 0.75rem !important;
+        /* text-xs */
+        gap: 0.375rem !important;
+        /* gap-1.5 */
+    }
+
+    /* Hero CTA Buttons - General */
+
+    .hero-section .btn-lg {
+        padding: 0.625rem 0.75rem !important;
+        font-size: 0.75rem !important;
+        /* text-xs */
+        height: auto !important;
+        min-height: 2.25rem !important;
+    }
+
+    /* Hero Rating Box */
+
+    .hero-section .inline-flex.items-center {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 1rem !important;
+        margin-bottom: 0;
+    }
+
+    /* ========================================================================
+           MARKET OVERVIEW - Mobile optimizations
+           ======================================================================== */
+
+    /* Market Stats Grid - 2x2 layout on mobile */
+
+    .grid.md\:grid-cols-2.lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+        /* gap-2 */
+    }
+
+    .glass.rounded-xl.p-6 {
+        padding: 0.75rem 0.5rem !important;
+        /* py-3 px-2 */
+    }
+
+    /* Market Stats Text */
+
+    .glass .text-sm.text-gray-400 {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+    }
+
+    .glass .text-2xl.lg\:text-3xl {
+        font-size: 1rem !important;
+        /* text-base */
+        line-height: 1.2 !important;
+    }
+
+    .glass .text-sm {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+    }
+
+    .glass .w-5.h-5 {
+        width: 1rem !important;
+        /* w-4 */
+        height: 1rem !important;
+        /* h-4 */
+    }
+
+    .glass .w-4.h-4 {
+        width: 0.875rem !important;
+        height: 0.875rem !important;
+    }
+
+    /* Chart Container */
+
+    #tradingview_market_chart,
+    .chart-container,
+    div[style*="height: 600px"] {
+        min-height: 300px !important;
+        /* Smaller on mobile */
+        height: 300px !important;
+    }
+
+    /* Market Stats Bar - 2x2 layout on mobile */
+
+    .grid.grid-cols-2.md\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+        /* gap-2 */
+    }
+
+    .glass.rounded-xl.p-5 {
+        padding: 0.5rem 0.375rem !important;
+        /* py-2 px-1.5 */
+    }
+
+    /* Market Stats Bar Icons */
+
+    .glass .w-8.h-8 {
+        width: 1.5rem !important;
+        /* w-6 */
+        height: 1.5rem !important;
+        /* h-6 */
+    }
+
+    .glass .w-4.h-4.text-blue-400,
+    .glass .w-4.h-4.text-green-400,
+    .glass .w-4.h-4.text-red-400,
+    .glass .w-4.h-4.text-orange-400 {
+        width: 0.875rem !important;
+        height: 0.875rem !important;
+    }
+
+    /* Market Stats Bar Text */
+
+    .glass .text-xs.font-medium {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+    }
+
+    .glass .text-2xl.font-bold {
+        font-size: 1rem !important;
+        /* text-base */
+        line-height: 1.2 !important;
+    }
+
+    .glass .text-xs.text-gray-500 {
+        font-size: 0.625rem !important;
+        /* text-[10px] */
+    }
+
+    /* Chart Header */
+
+    .text-3xl.lg\:text-4xl.font-bold {
+        font-size: 1.5rem !important;
+        /* text-2xl */
+    }
+
+    .text-lg {
+        font-size: 0.875rem !important;
+        /* text-sm */
+    }
+
+    /* ========================================================================
+         CHART CONTROLS ROW - Mobile optimizations
+         ======================================================================== */
+
+    /* Chart Controls Container - Compact layout */
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6 {
+        flex-direction: row !important;
+        /* Keep horizontal */
+        align-items: center !important;
+        justify-content: center !important;
+        /* Center instead of space-between */
+        gap: 0.5rem !important;
+        /* gap-2 instead of gap-4 */
+        margin-bottom: 1rem !important;
+        /* mb-4 instead of mb-6 */
+    }
+
+    /* Left Side - Hide empty or make compact */
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6>div:first-child {
+        display: none !important;
+        /* Hide empty left side on mobile */
+    }
+
+    /* Right Side - Center Live Indicator */
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6>div:last-child {
+        width: 100% !important;
+        justify-content: center !important;
+        /* Center the Live Indicator */
+        gap: 0.5rem !important;
+        /* gap-2 */
+    }
+
+    /* Live Indicator - Compact size */
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6 .px-4.py-2.glass {
+        padding: 0.375rem 0.75rem !important;
+        /* py-1.5 px-3 instead of px-4 py-2 */
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.375rem !important;
+        /* gap-1.5 */
+    }
+
+    /* Live Indicator Text - Smaller */
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6 .text-sm.font-semibold {
+        font-size: 0.75rem !important;
+        /* text-xs instead of text-sm */
+        line-height: 1.3 !important;
+    }
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6 .text-green-400 {
+        font-size: 0.75rem !important;
+        /* text-xs */
+    }
+
+    /* Live Indicator Dot - Smaller */
+
+    .flex.flex-col.lg\:flex-row.items-start.lg\:items-center.justify-between.gap-4.mb-6 .w-2.h-2 {
+        width: 0.5rem !important;
+        /* w-2 */
+        height: 0.5rem !important;
+        /* h-2 */
+    }
+
+    /* ========================================================================
+           INPUTS & SELECTS - Full width on mobile
+           ======================================================================== */
+
+    .input,
+    select.input {
+        width: 100% !important;
+        font-size: 0.875rem !important;
+        /* text-sm */
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    /* ========================================================================
+           GENERAL TEXT SIZES - Catch all oversized text
+           ======================================================================== */
+
+    /* Large text sizes - reduce on mobile */
+
+    .text-4xl,
+    .text-5xl,
+    .text-6xl {
+        font-size: 1.6rem !important;
+        /* text-3xl */
+        line-height: 1.2 !important;
+    }
+
+    .text-3xl {
+        font-size: 1.5rem !important;
+        /* text-2xl */
+        line-height: 1.3 !important;
+    }
+
+    .text-2xl {
+        font-size: 1.25rem !important;
+        /* text-xl */
+        line-height: 1.3 !important;
+    }
+
+    .text-xl {
+        font-size: 1.125rem !important;
+        /* text-lg */
+        line-height: 1.4 !important;
+    }
+
+    .text-lg {
+        font-size: 0.9rem !important;
+        /* text-base */
+        line-height: 1.5 !important;
+    }
+
+    /* ========================================================================
+           UTILITIES - Prevent text overflow
+           ======================================================================== */
+
+    * {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Prevent horizontal scroll */
+
+    body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Images - Responsive */
+
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Ensure containers don't overflow */
+
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Fix any fixed widths that might cause issues */
+
+    .w-full {
+        width: 100% !important;
+    }
+
+    /* ========================================================================
+           AUTO SCROLLING LOGOS - Fix layout breaking
+           ======================================================================== */
+
+    /* Exchange Logos Container */
+
+    .exchange-logos-scroll {
+        display: flex !important;
+        width: -moz-fit-content !important;
+        width: fit-content !important;
+        animation: scroll 30s linear infinite !important;
+    }
+
+    /* Exchange Logos Track */
+
+    .exchange-logos-track {
+        display: flex !important;
+        align-items: center !important;
+        flex-shrink: 0 !important;
+        gap: 0 !important;
+    }
+
+    /* Exchange Logo Items - Smaller on mobile */
+
+    .exchange-logos-track>div {
+        min-width: 120px !important;
+        /* Reduced from 160px */
+        height: 4rem !important;
+        /* h-16 instead of h-20 */
+        margin-left: 0.5rem !important;
+        /* mx-2 instead of mx-3 */
+        margin-right: 0.5rem !important;
+        padding: 0.375rem !important;
+        /* p-1.5 instead of p-2 */
+    }
+
+    /* Exchange Logo Images - Smaller */
+
+    .exchange-logos-track img {
+        height: 2.5rem !important;
+        /* h-10 instead of h-14 */
+        width: auto !important;
+        max-width: 100% !important;
+        -o-object-fit: contain !important;
+        object-fit: contain !important;
+    }
+
+    /* Prevent overflow */
+
+    section:has(.exchange-logos-scroll) {
+        overflow: hidden !important;
+        width: 100% !important;
+    }
+
+    .exchange-logos-scroll {
+        will-change: transform !important;
+    }
+}
+
+/* ========================================================================
+       SMALL TABLET STYLES (640px - 767px)
+       ======================================================================== */
+
+@media (min-width: 640px) and (max-width: 767px) {
+    /* Slightly larger text than mobile but still reduced */
+
+    .hero-section h1 {
+        font-size: 2.25rem !important;
+        /* text-4xl */
+    }
+
+    section h2,
+    .section-title {
+        font-size: 1.875rem !important;
+        /* text-3xl */
+    }
+
+    /* Two column grid for cards */
+
+    .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Table - Still scrollable but better */
+
+    table {
+        font-size: 0.875rem !important;
+        /* text-sm */
+    }
+}
+
+/* ========================================================================
+       TABLET STYLES (768px - 1023px)
+       ======================================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Medium text sizes */
+
+    .hero-section h1 {
+        font-size: 2.5rem !important;
+        /* text-4xl */
+    }
+
+    section h2 {
+        font-size: 2rem !important;
+        /* text-3xl */
+    }
+
+    /* Table - Better spacing */
+
+    table th,
+    table td {
+        padding: 0.875rem 0.75rem !important;
+        font-size: 0.875rem !important;
+    }
+
+    /* ========================================================================
+       BLOG SECTION - Center alignment on mobile
+       ======================================================================== */
+
+    /* Blog Section Header - Center on mobile */
+    section .flex.flex-col.lg\:flex-row.items-center {
+        text-align: center !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-center > div {
+        width: 100% !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-center h2 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-center p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 90% !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-center .btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* ========================================================================
+       QUICK ACTIONS SECTION - Center alignment on mobile
+       ======================================================================== */
+
+    /* Quick Actions Header - Center on mobile */
+    section .text-center.mb-12 {
+        text-align: center !important;
+    }
+
+    section .text-center.mb-12 h2 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    section .text-center.mb-12 p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 90% !important;
+    }
+
+    /* Quick Actions Grid - Center items */
+    section .grid.md\:grid-cols-2.lg\:grid-cols-4 {
+        justify-items: center !important;
+    }
+
+    section .grid.md\:grid-cols-3 {
+        justify-items: center !important;
+    }
+
+    /* Quick Actions Cards - Center content */
+    section .glass.rounded-2xl,
+    section .glass.rounded-xl {
+        text-align: center !important;
+    }
+
+    /* ========================================================================
+       GENERAL SECTIONS - Center alignment on mobile
+       ======================================================================== */
+
+    /* Section headers with flex layout - Center on mobile */
+    section .flex.flex-col.lg\:flex-row.items-start {
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-start > div:first-child {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-start > div:first-child h2,
+    section .flex.flex-col.lg\:flex-row.items-start > div:first-child p {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    section .flex.flex-col.lg\:flex-row.items-start .btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
